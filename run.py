@@ -12,6 +12,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('budgets_db')
 
+def save_data_to_worksheet(worksheet,data): # TODO: Move to utils
+    # Saves data to selected worksheet using parameters. 
+    worksheet = SHEET.worksheet(worksheet)
+    worksheet.append_row(data) 
+
 def create_budget():
     # Used for creating a new budget. The user writes
     # name of budget, sum of how much they want to spend.
@@ -32,13 +37,12 @@ def create_budget():
 def save_user_to_worksheet(): 
     # Reads user inputs, give the user a unique id and save user input in list and later appends list to worksheet. 
     users_in_worksheet = get_all_users()
-    new_user_id = len(users_in_worksheet) +1
+    new_user_id = len(users_in_worksheet) +1 # Counts number of users and adds one to get unique id. 
     user_fname = input("Enter your firstname: \n")
     user_lname = input("Enter your lastname: \n")
     username = input("Enter your username: \n")
     user = [new_user_id, username, user_fname, user_lname]
-    users_worksheet = SHEET.worksheet('users') 
-    users_worksheet.append_row(user) 
+    save_data_to_worksheet('users', user) 
     
 def get_active_user():
     # Prints user menu options. Calls different functions depending on user selection(old or new user).
