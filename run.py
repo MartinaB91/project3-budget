@@ -1,5 +1,20 @@
+import gspread
+from google.oauth2.service_account import Credentials
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('budgets_db')
 
 def create_budget():
+    """ Used for creating a new budget. The user writes
+     name of budget, sum of how much they want to spend. """
     print("Let's create a new budget!")
     budget_name = input("Give your budget a name: \n")
     print(
@@ -12,6 +27,12 @@ def create_budget():
     
     print(f"Your budget is as follows: \nShopping: {sum_shopping:>15} \nFood: {sum_food:>19} \nEntertainment: {sum_entertainment:>10} \nOther things: {sum_other:>11}")
      
+def get_all_users():
+    # Gets all users from budget_db. Returns list .
+    users_worksheet = SHEET.worksheet('users')
+    all_users = users_worksheet.get_all_records()
+    print(all_users)
+
 def start_program():
     # Present user with menu options over what choises they have and what they can do in this program.
     print("Welcome to your budget program")
@@ -39,6 +60,7 @@ def start_program():
   
 
 start_program()
+
 
 
 
