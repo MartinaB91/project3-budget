@@ -1,8 +1,11 @@
 import users
+import utils
 
 def create_budget():
     """ Used for creating a new budget. The user writes
     name of budget, sum of how much they want to spend."""
+    budgets_in_worksheet = utils.get_all_info_from_worksheet('budgets')
+    new_budget_id = len(budgets_in_worksheet) +1 # Counts number of users and adds one to get unique id. 
     print("Let's create a new budget!")
 
     budget_name = input("Give your budget a name: \n")
@@ -13,7 +16,8 @@ def create_budget():
     sum_food = input("How much do you want to budget for food? \n")
     sum_entertainment = input("How much do you want to budget for entertainment? \n")
     sum_other = input("How much do you want to budget for other things? \n")
-    
+    sum_total = [new_budget_id, "1", budget_name, sum_shopping, sum_food, sum_entertainment, sum_other]
+    utils.save_data_to_worksheet('budgets', sum_total) 
     print(f"Your budget is as follows: \nShopping: {sum_shopping:>15} \nFood: {sum_food:>19} \nEntertainment: {sum_entertainment:>10} \nOther things: {sum_other:>11}")
 
 def start_program():
