@@ -16,7 +16,7 @@ SHEET = GSPREAD_CLIENT.open('budgets_db')
 def save_new_user_to_worksheet(): 
     """ Reads user inputs, give the user a unique id and save user 
     input in list and later appends list to worksheet. """
-    users_in_worksheet = get_all_users()
+    users_in_worksheet = utils.get_all_info_from_worksheet('users',SHEET)
     new_user_id = len(users_in_worksheet) +1 # Counts number of users and adds one to get unique id. 
     user_fname = input("Enter your firstname: \n")
     user_lname = input("Enter your lastname: \n")
@@ -42,8 +42,10 @@ def get_active_user():
         print(f"{selected_option} is not a valid menu option. Please try again.")
         get_active_user()
 
-def get_all_users():
-    """ Gets all users from budget_db. Returns list. """
-    users_worksheet = SHEET.worksheet('users')
-    all_users = users_worksheet.get_all_records()
-    return all_users
+# def get_all_users():
+#     """ Gets all users from budget_db. Returns list. """
+#     users_worksheet = SHEET.worksheet('users')
+#     all_users = users_worksheet.get_all_records()
+#     return all_users
+
+
