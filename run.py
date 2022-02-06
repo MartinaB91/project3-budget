@@ -22,7 +22,7 @@ def start_program():
     """ Present user with menu options over what choises they have 
     and what they can do in this program. """
     active_user = users.get_active_user()
-    menu_options = (f"What do you want to do {active_user[1]}? \n"
+    menu_options = (f"What do you want to do? \n"
     "1. Create a new budget. \n"
     "2. Add purchase to ongoing budget. \n"
     "3. Get a summary of ongoing budget. \n"

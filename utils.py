@@ -24,7 +24,7 @@ def get_all_info_from_worksheet(worksheet_name):
     data = worksheet.get_all_records()
     return data
 
-def give_data_id(worksheet_name):
+def give_data_id(worksheet_name): # Todo: Change so if the sheet is empty user_id = 1
     """ Gives the data a unique id by adding 1 to the last number in lenght """
     data_in_worksheet = get_all_info_from_worksheet(worksheet_name) 
     new_id = len(data_in_worksheet) +1 # Counts number of users and adds one to get unique id. 

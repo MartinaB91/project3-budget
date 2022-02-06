@@ -19,8 +19,19 @@ def get_active_user():
     selected_option = input("Please select a menu option (1-2): \n")
 
     if selected_option == "1":
-        active_user = input("Enter your username: \n") # Todo: Find id of user.
-        return active_user
+        username_input = input("Enter your username: \n") # Todo: Find id of user.
+        users = utils.get_all_info_from_worksheet('users')
+
+        """ Search in all saved user in sheet to find if entered name is a user. Inspiration from:
+        https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python """
+        active_user = [dict for dict in users if dict["username"] == username_input]
+        if any(active_user): 
+            print(f"Hi, {username_input} good to have you back!")
+            return active_user
+        else:
+            print(f"The username you have entered, {username_input} doesn't exist. Please try again")
+            get_active_user()
+
     elif selected_option == "2":
         active_user = save_new_user_to_worksheet()
         return active_user
