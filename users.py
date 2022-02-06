@@ -3,11 +3,10 @@ import utils
 def save_new_user_to_worksheet(): 
     """ Reads user inputs, give the user a unique id and save user 
     input in list and later appends list to worksheet. """
-    users_in_worksheet = utils.get_all_info_from_worksheet('users')
-    new_user_id = len(users_in_worksheet) +1 # Counts number of users and adds one to get unique id. 
     user_fname = input("Enter your firstname: \n")
     user_lname = input("Enter your lastname: \n")
     username = input("Enter your username: \n")
+    new_user_id = utils.give_data_id('users')
     user = [new_user_id, username, user_fname, user_lname]
     utils.save_data_to_worksheet('users', user) 
     return username
@@ -28,7 +27,4 @@ def get_active_user():
     else: # Used when no valid menu option is selected. Call function to let user try again. 
         print(f"{selected_option} is not a valid menu option. Please try again.")
         get_active_user()
-
-
-
 
