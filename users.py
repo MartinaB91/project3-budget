@@ -9,7 +9,7 @@ def save_new_user_to_worksheet():
     new_user_id = utils.give_data_id('users')
     user = [new_user_id, username, user_fname, user_lname]
     utils.save_data_to_worksheet('users', user) 
-    return username
+    return user
 
 def get_active_user():
     """ Prints user menu options and let the user enter a username. 
@@ -19,7 +19,7 @@ def get_active_user():
     selected_option = input("Please select a menu option (1-2): \n")
 
     if selected_option == "1":
-        active_user = input("Enter your username: \n")
+        active_user = input("Enter your username: \n") # Todo: Find id of user.
         return active_user
     elif selected_option == "2":
         active_user = save_new_user_to_worksheet()
