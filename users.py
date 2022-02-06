@@ -22,8 +22,8 @@ def get_active_user():
         username_input = input("Enter your username: \n") # Todo: Find id of user.
         users = utils.get_all_info_from_worksheet('users')
 
-        """ Search in all saved user in sheet to find if entered name is a user. Inspiration from:
-        https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python """
+        """Search in all saved user in sheet to find if entered name is a user. Inspiration from:
+        https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python"""
         active_user = [dict for dict in users if dict["username"] == username_input]
         if any(active_user): 
             print(f"Hi, {username_input} good to have you back!")
