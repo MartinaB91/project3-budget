@@ -1,6 +1,7 @@
 import users
 import utils
 import budget
+import entries
 
 
 def start_program():
@@ -20,7 +21,7 @@ def start_program():
     if selected_option == "1":
         budget.create_budget(active_user[0]['id'])
     elif selected_option == "2":
-        print(selected_option)
+        entries.get_active_budget(active_user[0]['id'])
     elif selected_option == "3":
         print(selected_option)
     elif selected_option == "4":
