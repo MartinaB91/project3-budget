@@ -16,7 +16,7 @@ SHEET = GSPREAD_CLIENT.open('budgets_db')
 def save_data_to_worksheet(worksheet_name,data):
     """ Saves data to selected worksheet using parameters.""" 
     worksheet = SHEET.worksheet(worksheet_name)
-    worksheet.append_row(data)
+    worksheet.append_row(data) # Appends list to selected worksheet
 
 def get_all_info_from_worksheet(worksheet_name):
     """ Gets all info from selected worksheet in budget_db. Returns list. """

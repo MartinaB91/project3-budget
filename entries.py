@@ -1,6 +1,9 @@
 import utils
 
 def save_budget_entry(active_budget_id, active_user_id, active_budget_name):
+        """ Gives the user different entry options(menu options), reads user input, 
+        gives the new entry a unique id and save information about the entry, active user and 
+        budget and saves to worksheet."""
         menu_options = (f"Your current budget is {active_budget_name}. Now let's choose a category for your purchase: \n"
         "1. Shopping. \n"
         "2. Food. \n"
@@ -10,6 +13,7 @@ def save_budget_entry(active_budget_id, active_user_id, active_budget_name):
         print(menu_options)
         selected_option = input("Please select a menu option (1-5): \n")
 
+        """ Prints menu options for budgets entries and reads inputs """
         if selected_option == "1":
             budget_category = "shopping"
             budget_entry = input("How much have you spent on shopping:")
@@ -28,8 +32,8 @@ def save_budget_entry(active_budget_id, active_user_id, active_budget_name):
             print(f"{selected_option} is not a valid menu option. Please try again.")
             selected_option = input("Please select a menu option (1-5): \n")
         
-        new_budget_id = utils.give_data_id('budget entries')
-        entry = [new_budget_id, active_user_id, active_budget_id, budget_category, budget_entry]
+        new_budget_id = utils.give_data_id('budget entries') # Gets the entry a unique id 
+        entry = [new_budget_id, active_user_id, active_budget_id, budget_category, budget_entry] # Saves data in a list
         utils.save_data_to_worksheet('budget entries', entry) 
 
 
