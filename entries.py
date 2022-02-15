@@ -1,5 +1,29 @@
 import utils
 
+def create_budget_entry(active_budget_name):
+        menu_options = (f"Your current budget is {active_budget_name}. Now let's choose a category for your purchase: \n"
+        "1. Shopping. \n"
+        "2. Food. \n"
+        "3. Entertainment. \n"
+        "4. Other. \n"
+        "5. Done.")
+        print(menu_options)
+        selected_option = input("Please select a menu option (1-5): \n")
+
+        if selected_option == "1":
+            input("Shopping:")
+        elif selected_option == "2":
+            input("Food:")
+        elif selected_option == "3":
+            input("Entertainment:")
+        elif selected_option == "4":
+            input("Other:")
+        elif selected_option == "5":
+            print(selected_option) # Todo: Return to start page or go back
+        else:
+            print(f"{selected_option} is not a valid menu option. Please try again.")
+            selected_option = input("Please select a menu option (1-5): \n")
+
 
 def get_active_budget(active_user):
     """ Get active users budget(s) and prints them so the user 
@@ -23,7 +47,18 @@ def get_active_budget(active_user):
     
     selected_option = input(f"Please select a menu option: 1-{menu_option} \n") 
     budget_index = int(selected_option) - 1 # Index is always off by one. To get index value, subtract one from selected option.
-    print(active_user_budgets[budget_index])
+    active_budget_name = active_user_budgets[budget_index]['budget_name']
+    create_budget_entry(active_budget_name)
+  
+
+    
+
+
+    
+   
+
+
+
 
 
 
