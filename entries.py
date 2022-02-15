@@ -1,6 +1,6 @@
 import utils
 
-def create_budget_entry(active_budget_name):
+def save_budget_entry(active_budget_id, active_user_id, active_budget_name):
         menu_options = (f"Your current budget is {active_budget_name}. Now let's choose a category for your purchase: \n"
         "1. Shopping. \n"
         "2. Food. \n"
@@ -11,18 +11,26 @@ def create_budget_entry(active_budget_name):
         selected_option = input("Please select a menu option (1-5): \n")
 
         if selected_option == "1":
-            input("Shopping:")
+            budget_category = "shopping"
+            budget_entry = input("How much have you spent on shopping:")
         elif selected_option == "2":
-            input("Food:")
+            budget_category = "food"
+            budget_entry = input("How much have you spent on food:")
         elif selected_option == "3":
-            input("Entertainment:")
+            budget_category = "entertainment"
+            budget_entry = input("How much have you spent on entertainment:")
         elif selected_option == "4":
-            input("Other:")
+            budget_category = "other"
+            budget_entry = input("How much have you spent on other:")
         elif selected_option == "5":
             print(selected_option) # Todo: Return to start page or go back
         else:
             print(f"{selected_option} is not a valid menu option. Please try again.")
             selected_option = input("Please select a menu option (1-5): \n")
+        
+        new_budget_id = utils.give_data_id('budget entries')
+        entry = [new_budget_id, active_user_id, active_budget_id, budget_category, budget_entry]
+        utils.save_data_to_worksheet('budget entries', entry) 
 
 
 def get_active_budget(active_user):
@@ -47,8 +55,8 @@ def get_active_budget(active_user):
     
     selected_option = input(f"Please select a menu option: 1-{menu_option} \n") 
     budget_index = int(selected_option) - 1 # Index is always off by one. To get index value, subtract one from selected option.
-    active_budget_name = active_user_budgets[budget_index]['budget_name']
-    create_budget_entry(active_budget_name)
+    active_budget = active_user_budgets[budget_index]
+    save_budget_entry(active_budget['id'], active_budget['user_id'], active_budget['budget_name'])
   
 
     
