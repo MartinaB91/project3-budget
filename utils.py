@@ -19,7 +19,7 @@ def save_data_to_worksheet(worksheet_name,data):
     worksheet.append_row(data) # Appends list to selected worksheet
 
 def get_all_info_from_worksheet(worksheet_name):
-    """ Gets all info from selected worksheet in budget_db. Returns list. """
+    """ Gets all info from selected worksheet in budgets_db. Returns list. """
     worksheet = SHEET.worksheet(worksheet_name)
     data = worksheet.get_all_records()
     return data

@@ -23,7 +23,7 @@ def start_program():
     elif selected_option == "2":
         entries.save_budget_entry(active_user[0]['id'])
     elif selected_option == "3":
-        print(selected_option)
+        budget.get_budget_summary(active_user[0]['id'])
     elif selected_option == "4":
         print(selected_option)
     else:
