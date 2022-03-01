@@ -2,7 +2,6 @@ import utils
 
 def save_budget_entry(active_user_id):
         active_budget = utils.get_active_budget(active_user_id)
-
         """ Gives the user different entry options(menu options), reads user input, 
         gives the new entry a unique id and save information about the entry, active user and 
         budget and saves to worksheet."""

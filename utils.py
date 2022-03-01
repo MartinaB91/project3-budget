@@ -54,3 +54,15 @@ def get_active_budget(active_user):
     budget_index = int(selected_option) - 1 # Index is always off by one. To get index value, subtract one from selected option.
     active_budget = active_user_budgets[budget_index]
     return active_budget
+
+def get_input_only_letters(print_statement_enter, print_statement_error_message):
+    """ Check if user input is only letters. 
+    If not, tell user and keep asking for input """
+    tryAgain = True
+    while tryAgain == True:
+        user_input = input(print_statement_enter)
+        if user_input.isalpha():
+            tryAgain = False
+        else:
+            print(print_statement_error_message)
+    return user_input

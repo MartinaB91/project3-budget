@@ -2,9 +2,9 @@ import utils
 
 def save_new_user_to_worksheet(): 
     """ Reads user inputs, give the user a unique id and save user 
-    input to worksheet. """
-    user_fname = input("Enter your firstname: \n")
-    user_lname = input("Enter your lastname: \n")
+    input to worksheet. """     
+    user_fname = utils.get_input_only_letters("Enter your firstname:\n", "Your firstname can only contain letters, please try again!\n")
+    user_lname = utils.get_input_only_letters("Enter your lastname:\n", "Your lastname can only contain letters, please try again!\n" )
     username = input("Enter your username: \n")
     new_user_id = utils.give_data_id('users')
     user = [new_user_id, username, user_fname, user_lname] # saves data in a list
