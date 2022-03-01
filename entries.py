@@ -17,16 +17,16 @@ def save_budget_entry(active_user_id):
         """ Prints menu options for budgets entries and reads inputs """
         if selected_option == "1":
             budget_category = "shopping"
-            budget_entry = input("How much have you spent on shopping:")
+            budget_entry = utils.get_input_only_digits("How much have you spent on shopping:")
         elif selected_option == "2":
             budget_category = "food"
-            budget_entry = input("How much have you spent on food:")
+            budget_entry = utils.get_input_only_digits("How much have you spent on food:")
         elif selected_option == "3":
             budget_category = "entertainment"
-            budget_entry = input("How much have you spent on entertainment:")
+            budget_entry = utils.get_input_only_digits("How much have you spent on entertainment:")
         elif selected_option == "4":
             budget_category = "other"
-            budget_entry = input("How much have you spent on other:")
+            budget_entry = utils.get_input_only_digits("How much have you spent on other:")
         elif selected_option == "5":
             print(selected_option) # Todo: Return to start page or go back
         else:
