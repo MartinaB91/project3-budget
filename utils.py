@@ -55,6 +55,7 @@ def get_active_budget(active_user):
     active_budget = active_user_budgets[budget_index]
     return active_budget
 
+#https://docs.python.org/2/library/stdtypes.html
 def get_input_only_letters(print_statement_enter, print_statement_error_message):
     """ Check if user input is only letters. 
     If not, tell user and keep asking for input """
@@ -65,4 +66,20 @@ def get_input_only_letters(print_statement_enter, print_statement_error_message)
             tryAgain = False
         else:
             print(print_statement_error_message)
+    return user_input
+
+# https://docs.python.org/2/library/stdtypes.html
+def get_input_only_digits(print_statement_enter):
+    """ Check if user input is only digits. 
+    If not, tell user and keep asking for input """
+    tryAgain = True
+    while tryAgain == True:
+        user_input = input(print_statement_enter)
+        if user_input.isdigit():
+            tryAgain = False
+            if user_input.startswith('0'): # Checks if first digit is zero. Try again if it is. 
+                print("Your amount can't start with 0, please try again!")
+                tryAgain = True
+        else:
+            print('Your amount can only contain digits, please try again!')
     return user_input
