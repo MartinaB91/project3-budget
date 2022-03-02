@@ -28,10 +28,12 @@ def select_menu_option(active_user):
         entries.save_budget_entry(active_user[0]['id'])
     elif selected_option == "3":
         budget.get_budget_summary(active_user[0]['id'])
+        select_menu_option(active_user)
     elif selected_option == "4":
         print(selected_option)
+        select_menu_option(active_user)
     else:
-        print(f"{selected_option} is not a valid menu option. Please try again.")
-        selected_option = input("Please select a menu option (1-4): \n") # Todo: Add call to function to start over.
+        print(f"{selected_option} is not a valid menu option. Please try again.\n")
+        select_menu_option(active_user)# Present the user with menu options again. 
 
 start_program()
