@@ -8,10 +8,10 @@ def create_budget(active_user):
     print(
         f"The name of your new budget is {budget_name}. Now let's enter the amount for each category."
     )
-    sum_shopping = utils.get_input_only_digits("How much do you want to budget for shopping? \n")
-    sum_food = utils.get_input_only_digits("How much do you want to budget for food? \n")
-    sum_entertainment = utils.get_input_only_digits("How much do you want to budget for entertainment? \n")
-    sum_other = utils.get_input_only_digits("How much do you want to budget for other things? \n")
+    sum_shopping = utils.get_input_only_digits("How much do you want to budget for shopping? \n", 'Your amount can only contain digits, please try again!')
+    sum_food = utils.get_input_only_digits("How much do you want to budget for food? \n", 'Your amount can only contain digits, please try again!')
+    sum_entertainment = utils.get_input_only_digits("How much do you want to budget for entertainment? \n", 'Your amount can only contain digits, please try again!')
+    sum_other = utils.get_input_only_digits("How much do you want to budget for other things? \n", 'Your amount can only contain digits, please try again!')
     new_budget_id = utils.give_data_id('budgets')
     sum_total = [new_budget_id, active_user, budget_name, sum_shopping, sum_food, sum_entertainment, sum_other, 'active']
     utils.save_data_to_worksheet('budgets', sum_total) 
@@ -50,4 +50,4 @@ def get_budget_summary(active_user_id):
             sum_other = sum_other + all_budget_entries[i]['amount']
 
             
-    print(f'Your have spent following on: \nShopping: {sum_shopping:>16} of total {active_budget["shopping"]} \nFood: {sum_food:>19} of total {active_budget["food"]}\nEntertainment: {sum_entertainment:>10} of total {active_budget["entertainment"]} \nOther: {sum_other:>18} of total {active_budget["other"]}')
+    print(f'Your have spent following on: \nShopping: {sum_shopping:>16} of total {active_budget["shopping"]} \nFood: {sum_food:>19} of total {active_budget["food"]}\nEntertainment: {sum_entertainment:>10} of total {active_budget["entertainment"]} \nOther: {sum_other:>18} of total {active_budget["other"]}\n')

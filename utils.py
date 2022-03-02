@@ -51,7 +51,7 @@ def get_active_budget(active_user):
             menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
             print(menu_options)
  
-    selected_option = input(f"Please select a menu option: 1-{menu_option} \n") 
+    selected_option = get_input_only_digits(f"Please select a menu option: 1-{menu_option} \n", 'Your option can only contain digits, please try again!') 
     budget_index = int(selected_option) - 1 # Index is always off by one. To get index value, subtract one from selected option.
     active_budget = active_user_budgets[budget_index]
     return active_budget
@@ -70,7 +70,7 @@ def get_input_only_letters(print_statement_enter, print_statement_error_message)
     return user_input
 
 # https://docs.python.org/2/library/stdtypes.html
-def get_input_only_digits(print_statement_enter):
+def get_input_only_digits(print_statement_enter, print_statement_error_message):
     """ Check if user input is only digits. 
     If not, tell user and keep asking for input """
     try_again = True
@@ -82,5 +82,7 @@ def get_input_only_digits(print_statement_enter):
                 print("Your amount can't start with 0, please try again!")
                 try_again = True
         else:
-            print('Your amount can only contain digits, please try again!')
+            print(print_statement_error_message)
     return user_input
+
+   

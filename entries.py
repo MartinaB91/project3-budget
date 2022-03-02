@@ -1,5 +1,6 @@
 import utils
 
+
 def save_budget_entry(active_user_id):
         active_budget = utils.get_active_budget(active_user_id)
         """ Gives the user different entry options(menu options), reads user input, 
@@ -28,36 +29,4 @@ def save_budget_entry(active_user_id):
             budget_category = "other"
             budget_entry = utils.get_input_only_digits("How much have you spent on other:")
         elif selected_option == "5":
-            print(selected_option) # Todo: Return to start page or go back
-        else:
-            print(f"{selected_option} is not a valid menu option. Please try again.")
-            selected_option = input("Please select a menu option (1-5): \n")
-        
-        new_budget_id = utils.give_data_id('budget entries') # Gets the entry a unique id 
-        entry = [new_budget_id, active_user_id, active_budget['id'], budget_category, budget_entry] # Saves data in a list
-        utils.save_data_to_worksheet('budget entries', entry) 
-
-    
-
-    
-
-
-    
-   
-
-
-
-
-
-
-
-
-
-        
-            
-       
-            
-
-  
-
-
+            print(selected_option) # Todo: Return to start
