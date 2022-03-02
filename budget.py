@@ -51,3 +51,4 @@ def get_budget_summary(active_user_id):
             sum_other = sum_other + all_budget_entries[i]['amount']
 
     print(f'Your have spent following on: \nShopping: {sum_shopping:>16} of total {active_budget["shopping"]} \nFood: {sum_food:>19} of total {active_budget["food"]}\nEntertainment: {sum_entertainment:>10} of total {active_budget["entertainment"]} \nOther: {sum_other:>18} of total {active_budget["other"]}\n')
+

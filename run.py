@@ -39,7 +39,7 @@ def select_menu_option(active_user):
     elif selected_option == "3":
         budget.get_budget_summary(active_user[0]["id"])
     elif selected_option == "4":
-        print(selected_option)
+        utils.change_status_budget(active_user[0]["id"])
     else:
         colors.text_color_red(
             f"{selected_option} is not a valid menu option. Please try again.\n"

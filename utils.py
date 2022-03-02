@@ -106,3 +106,12 @@ def get_input_only_digits(print_statement_enter, print_statement_error_message):
         else:
             colors.text_color_red(print_statement_error_message)
     return user_input
+
+
+def change_status_budget(active_user_id):
+    """ Changes status on active budgets to inactive.
+    """
+    print('Wich budget do you want to end?\n')
+    active_budget = get_active_budget(active_user_id)  # Choosen active budget
+    worksheet = SHEET.worksheet('budgets')
+    worksheet.update('H' + str(active_budget['id'] + 1), 'inactive')
