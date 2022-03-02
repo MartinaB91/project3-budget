@@ -63,8 +63,16 @@ def get_active_budget(active_user):
             menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
             print(menu_options)
  
-    selected_option = get_input_only_digits(f"Please select a menu option: 1-{menu_option} \n", 'Your option can only contain digits, please try again!') 
-    budget_index = int(selected_option) - 1  # Index is always off by one. To get index value, subtract one from selected option.
+    try_again = True
+    while try_again:
+        selected_option = get_input_only_digits(f"Please select a menu option: 1-{menu_option} \n", 'Your option can only contain digits, please try again!')
+        budget_index = int(selected_option) - 1  # Index is always off by one. To get index value, subtract one from selected option.
+        # Inspiration from: https://www.tutorialkart.com/python/python-range/python-if-in-range/
+        if budget_index in range(0, menu_option):
+            try_again = False
+        else:
+            colors.text_color_red(f"{selected_option} is not a valid menu option. Please try again.\n")
+
     active_budget = active_user_budgets[budget_index]
     return active_budget
 
