@@ -41,15 +41,19 @@ def get_active_budget(active_user):
 
     active_user_budgets = [] # Used for storing only the active users budget(s).
    
+
     for i in range(len(all_budgets)): 
         """ Loops through all budgets to find active users budget(s). 
-        If a budget has the same user id as the active user, the budget is appended to list. """
-
+        If a budget has the same user id as the active user,
+        the budget is appended to list. 
+        """
         if all_budgets[i]['user_id'] == active_user:
             active_user_budgets.append(all_budgets[i])
             menu_option = menu_option + 1
+
             """Because a user can have any number of budgets. 
-            The menu options need to be changeable."""
+            The menu options need to be changeable.
+            """
             menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
             print(menu_options)
  
@@ -86,5 +90,3 @@ def get_input_only_digits(print_statement_enter, print_statement_error_message):
         else:
             colors.text_color_red(print_statement_error_message)
     return user_input
-
-   

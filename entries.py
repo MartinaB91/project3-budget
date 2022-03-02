@@ -1,4 +1,6 @@
 import utils
+import colors
+
 
 
 def save_budget_entry(active_user_id):
@@ -12,7 +14,7 @@ def save_budget_entry(active_user_id):
         "3. Entertainment. \n"
         "4. Other. \n"
         "5. Done.")
-        print(menu_options)
+        colors.text_color_blue(menu_options)
         selected_option = utils.get_input_only_digits("Please select a menu option (1-5): \n", 'Your option can only contain digits, please try again!')
 
         """ Prints menu options for budgets entries and reads inputs. """

@@ -1,6 +1,7 @@
 import utils
 import colors
 
+
 def save_new_user_to_worksheet(): 
     """ Reads user inputs, give the user a unique id and save user 
     input to worksheet. """     
@@ -15,8 +16,9 @@ def save_new_user_to_worksheet():
 def get_active_user():
     """ Prints user menu options and let the user enter a username. 
     Depending on user selection the function return active user(old or new user)."""
-    menu_options = ("Welcome to your budget program \n1. Enter your username. \n2. Create a new user.\n")
-    print(menu_options)
+    print('Welcome to your budget program.\n')
+    menu_options = ("1. Enter your username. \n2. Create a new user.\n")
+    colors.text_color_blue(menu_options)
     selected_option = input("Please select a menu option (1-2): \n")
 
     if selected_option == "1":

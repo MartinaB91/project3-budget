@@ -4,6 +4,7 @@ import budget
 import entries
 import colors
 
+
 def start_program():
     active_user = users.get_active_user()
     select_menu_option(active_user)
@@ -17,7 +18,7 @@ def select_menu_option(active_user):
     "2. Add purchase to ongoing budget. \n"
     "3. Get a summary of ongoing budget. \n"
     "4. End ongoing budget. \n")
-    print(menu_options)
+    colors.text_color_blue(menu_options)
     
     selected_option = utils.get_input_only_digits("Please select a menu option (1-4): \n", 'Your option can only contain digits, please try again!')
     """Depending on what choice the user choose it will lead to 

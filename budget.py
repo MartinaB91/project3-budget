@@ -1,4 +1,5 @@
 import utils
+import colors
 
 def create_budget(active_user):
     """ Used for creating a new budget. The user writes
