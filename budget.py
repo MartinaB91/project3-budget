@@ -13,9 +13,10 @@ def create_budget(active_user):
     sum_entertainment = utils.get_input_only_digits("How much do you want to budget for entertainment? \n")
     sum_other = utils.get_input_only_digits("How much do you want to budget for other things? \n")
     new_budget_id = utils.give_data_id('budgets')
-    sum_total = [new_budget_id, active_user, budget_name, sum_shopping, sum_food, sum_entertainment, sum_other]
+    sum_total = [new_budget_id, active_user, budget_name, sum_shopping, sum_food, sum_entertainment, sum_other, 'active']
     utils.save_data_to_worksheet('budgets', sum_total) 
-    print(f"Your budget is as follows: \nShopping: {sum_shopping:>15} \nFood: {sum_food:>19} \nEntertainment: {sum_entertainment:>10} \nOther: {sum_other:>11}")
+    print(f"Your budget is as follows: \nShopping: {sum_shopping:>15} \nFood: {sum_food:>19} \nEntertainment: {sum_entertainment:>10} \nOther: {sum_other:>11}\n")
+
 
 def get_budget_summary(active_user_id):
     """ Gets all entries in active budget, summarize and print. """

@@ -14,7 +14,7 @@ def save_budget_entry(active_user_id):
         print(menu_options)
         selected_option = input("Please select a menu option (1-5): \n")
 
-        """ Prints menu options for budgets entries and reads inputs """
+        """ Prints menu options for budgets entries and reads inputs. """
         if selected_option == "1":
             budget_category = "shopping"
             budget_entry = utils.get_input_only_digits("How much have you spent on shopping:")

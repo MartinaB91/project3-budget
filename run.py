@@ -3,11 +3,14 @@ import utils
 import budget
 import entries
 
-
 def start_program():
+    active_user = users.get_active_user()
+    select_menu_option(active_user)
+
+
+def select_menu_option(active_user):
     """ Present user with menu options over what choises they have 
     and what they can do in this program. """
-    active_user = users.get_active_user()
     menu_options = ("What do you want to do? \n"
     "1. Create a new budget. \n"
     "2. Add purchase to ongoing budget. \n"
@@ -17,9 +20,10 @@ def start_program():
     
     selected_option = input("Please select a menu option (1-4): \n")
     """Depending on what choice the user choose it will lead to 
-    different 'pages'. Every page has its own function."""
+    different 'pages'. Every page has it's own function."""
     if selected_option == "1":
         budget.create_budget(active_user[0]['id'])
+        select_menu_option(active_user)
     elif selected_option == "2":
         entries.save_budget_entry(active_user[0]['id'])
     elif selected_option == "3":
@@ -31,5 +35,3 @@ def start_program():
         selected_option = input("Please select a menu option (1-4): \n") # Todo: Add call to function to start over.
 
 start_program()
-
-

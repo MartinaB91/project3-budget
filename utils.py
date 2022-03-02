@@ -18,6 +18,7 @@ def save_data_to_worksheet(worksheet_name,data):
     worksheet = SHEET.worksheet(worksheet_name)
     worksheet.append_row(data) # Appends list to selected worksheet
 
+
 def get_all_info_from_worksheet(worksheet_name):
     """ Gets all info from selected worksheet in budgets_db. Returns list. """
     worksheet = SHEET.worksheet(worksheet_name)
@@ -41,15 +42,15 @@ def get_active_budget(active_user):
     for i in range(len(all_budgets)): 
         """ Loops through all budgets to find active users budget(s). 
         If a budget has the same user id as the active user, the budget is appended to list. """
+
         if all_budgets[i]['user_id'] == active_user:
             active_user_budgets.append(all_budgets[i])
             menu_option = menu_option + 1
-            
             """Because a user can have any number of budgets. 
             The menu options need to be changeable."""
-            menu_options = f"{menu_option}. {all_budgets[i]['budget_name']}\n"
+            menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
             print(menu_options)
-    
+ 
     selected_option = input(f"Please select a menu option: 1-{menu_option} \n") 
     budget_index = int(selected_option) - 1 # Index is always off by one. To get index value, subtract one from selected option.
     active_budget = active_user_budgets[budget_index]
@@ -59,11 +60,11 @@ def get_active_budget(active_user):
 def get_input_only_letters(print_statement_enter, print_statement_error_message):
     """ Check if user input is only letters. 
     If not, tell user and keep asking for input """
-    tryAgain = True
-    while tryAgain == True:
+    try_again = True
+    while try_again == True:
         user_input = input(print_statement_enter)
         if user_input.isalpha():
-            tryAgain = False
+            try_again = False
         else:
             print(print_statement_error_message)
     return user_input
@@ -72,14 +73,14 @@ def get_input_only_letters(print_statement_enter, print_statement_error_message)
 def get_input_only_digits(print_statement_enter):
     """ Check if user input is only digits. 
     If not, tell user and keep asking for input """
-    tryAgain = True
-    while tryAgain == True:
+    try_again = True
+    while try_again == True:
         user_input = input(print_statement_enter)
         if user_input.isdigit():
-            tryAgain = False
+            try_again = False
             if user_input.startswith('0'): # Checks if first digit is zero. Try again if it is. 
                 print("Your amount can't start with 0, please try again!")
-                tryAgain = True
+                try_again = True
         else:
             print('Your amount can only contain digits, please try again!')
     return user_input
