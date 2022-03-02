@@ -15,23 +15,29 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('budgets_db')
 
 
-def save_data_to_worksheet(worksheet_name,data):
-    """ Saves data to selected worksheet using parameters.""" 
+def save_data_to_worksheet(worksheet_name, data):
+    """ Saves data to selected worksheet using parameters.
+    """
     worksheet = SHEET.worksheet(worksheet_name)
-    worksheet.append_row(data) # Appends list to selected worksheet
+    worksheet.append_row(data)  # Appends list to selected worksheet
 
 
 def get_all_info_from_worksheet(worksheet_name):
-    """ Gets all info from selected worksheet in budgets_db. Returns list. """
+    """ Gets all info from selected worksheet in budgets_db. Returns list. 
+    """
     worksheet = SHEET.worksheet(worksheet_name)
     data = worksheet.get_all_records()
     return data
 
-def give_data_id(worksheet_name): # Todo: Change so if the sheet is empty user_id = 1
+
+# Todo: Change so if the sheet is empty user_id = 1
+def give_data_id(worksheet_name):  
     """ Gives the data a unique id by adding 1 to the last number in lenght """
-    data_in_worksheet = get_all_info_from_worksheet(worksheet_name) 
-    new_id = len(data_in_worksheet) +1 # Counts number of users and adds one to get unique id. 
+    data_in_worksheet = get_all_info_from_worksheet(worksheet_name)
+    # Counts number of users and adds one to get unique id. 
+    new_id = len(data_in_worksheet) + 1   
     return new_id
+
 
 def get_active_budget(active_user):
     """ Get active users budget(s) and prints them so the user 
@@ -39,9 +45,9 @@ def get_active_budget(active_user):
     all_budgets = get_all_info_from_worksheet('budgets')
     menu_option = 0
 
-    active_user_budgets = [] # Used for storing only the active users budget(s).
+    # Used for storing only the active users budget(s).
+    active_user_budgets = []
    
-
     for i in range(len(all_budgets)): 
         """ Loops through all budgets to find active users budget(s). 
         If a budget has the same user id as the active user,
@@ -58,33 +64,35 @@ def get_active_budget(active_user):
             print(menu_options)
  
     selected_option = get_input_only_digits(f"Please select a menu option: 1-{menu_option} \n", 'Your option can only contain digits, please try again!') 
-    budget_index = int(selected_option) - 1 # Index is always off by one. To get index value, subtract one from selected option.
+    budget_index = int(selected_option) - 1  # Index is always off by one. To get index value, subtract one from selected option.
     active_budget = active_user_budgets[budget_index]
     return active_budget
 
-#https://docs.python.org/2/library/stdtypes.html
+
+# https://docs.python.org/2/library/stdtypes.html
 def get_input_only_letters(print_statement_enter, print_statement_error_message):
     """ Check if user input is only letters. 
     If not, tell user and keep asking for input """
     try_again = True
-    while try_again == True:
-        user_input = colors.text_color_red(print_statement_enter)
+    while try_again:
+        user_input = input(print_statement_enter)
         if user_input.isalpha():
             try_again = False
         else:
             colors.text_color_red(print_statement_error_message)
     return user_input
 
+
 # https://docs.python.org/2/library/stdtypes.html
 def get_input_only_digits(print_statement_enter, print_statement_error_message):
     """ Check if user input is only digits. 
     If not, tell user and keep asking for input """
     try_again = True
-    while try_again == True:
+    while try_again:
         user_input = input(print_statement_enter)
         if user_input.isdigit():
             try_again = False
-            if user_input.startswith('0'): # Checks if first digit is zero. Try again if it is. 
+            if user_input.startswith('0'):  # Checks if first digit is zero. Try again if it is. 
                 colors.text_color_red("Your amount can't start with 0, please try again!")
                 try_again = True
         else:
