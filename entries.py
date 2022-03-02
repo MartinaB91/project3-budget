@@ -13,7 +13,7 @@ def save_budget_entry(active_user_id):
         "4. Other. \n"
         "5. Done.")
         print(menu_options)
-        selected_option = input("Please select a menu option (1-5): \n")
+        selected_option = utils.get_input_only_digits("Please select a menu option (1-5): \n", 'Your option can only contain digits, please try again!')
 
         """ Prints menu options for budgets entries and reads inputs. """
         if selected_option == "1":
@@ -30,3 +30,6 @@ def save_budget_entry(active_user_id):
             budget_entry = utils.get_input_only_digits("How much have you spent on other:")
         elif selected_option == "5":
             print(selected_option) # Todo: Return to start
+        else:
+            print(f"{selected_option} is not a valid menu option. Please try again.\n")
+        # Todo: Present the user with menu options again. 

@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import colors
 
 
 SCOPE = [
@@ -12,6 +13,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('budgets_db')
+
 
 def save_data_to_worksheet(worksheet_name,data):
     """ Saves data to selected worksheet using parameters.""" 
@@ -62,11 +64,11 @@ def get_input_only_letters(print_statement_enter, print_statement_error_message)
     If not, tell user and keep asking for input """
     try_again = True
     while try_again == True:
-        user_input = input(print_statement_enter)
+        user_input = colors.text_color_red(print_statement_enter)
         if user_input.isalpha():
             try_again = False
         else:
-            print(print_statement_error_message)
+            colors.text_color_red(print_statement_error_message)
     return user_input
 
 # https://docs.python.org/2/library/stdtypes.html
@@ -79,10 +81,10 @@ def get_input_only_digits(print_statement_enter, print_statement_error_message):
         if user_input.isdigit():
             try_again = False
             if user_input.startswith('0'): # Checks if first digit is zero. Try again if it is. 
-                print("Your amount can't start with 0, please try again!")
+                colors.text_color_red("Your amount can't start with 0, please try again!")
                 try_again = True
         else:
-            print(print_statement_error_message)
+            colors.text_color_red(print_statement_error_message)
     return user_input
 
    
