@@ -13,7 +13,6 @@ class Colors:
     green = '\033[0;32m'
     
 
-
 def print_text_color_red(text):
     """ Print the consol text red.
     """

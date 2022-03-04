@@ -62,7 +62,7 @@ def get_active_budget(active_user):
             """
             menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
             colors.print_text_color_blue(menu_options)
- 
+
     try_again = True
     while try_again:
         selected_option = get_input_only_digits(f"Please select a menu option: 1-{menu_option} \n", 'Your option can only contain digits, please try again!')

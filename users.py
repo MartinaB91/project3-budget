@@ -1,6 +1,6 @@
+from emoji import emojize
 import utils
 import colors
-from emoji import emojize
 
 
 def save_new_user_to_worksheet():
