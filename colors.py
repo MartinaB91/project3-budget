@@ -8,8 +8,9 @@ class Colors:
     white = '\033[0m'
     red = '\033[31m'
     blue = '\033[96m'
-    yellow = '\033[33m'
     purple = '\033[35m'
+    pink = '\033[38;5;206m'
+    green = '\033[0;32m'
     
 
 
@@ -31,7 +32,7 @@ def print_text_color_purple(text):
     print(Colors.purple + text + Colors.white)
 
 
-def print_text_color_yellow(text):
+def print_text_color_green(text):
     """ Print the consol text yellow.
     """
-    print(Colors.yellow + text + Colors.white)
+    print(Colors.green + text + Colors.white)

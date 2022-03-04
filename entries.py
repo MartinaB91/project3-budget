@@ -27,16 +27,16 @@ def save_budget_entry(active_user_id):
         """ Prints menu options for budgets entries and reads inputs."""
         if selected_option == "1":
             budget_category = "shopping"
-            budget_entry = utils.get_input_only_digits("How much have you spent on shopping:", 'Your amount can only contain digits, please try again!')
+            budget_entry = utils.get_input_only_digits(f"{colors.Colors.pink}How much have you spent on shopping:{colors.Colors.white}", 'Your amount can only contain digits, please try again!')
         elif selected_option == "2":
             budget_category = "food"
-            budget_entry = utils.get_input_only_digits("How much have you spent on food:", 'Your amount can only contain digits, please try again!')
+            budget_entry = utils.get_input_only_digits(f"{colors.Colors.pink}How much have you spent on food:{colors.Colors.white}", 'Your amount can only contain digits, please try again!')
         elif selected_option == "3":
             budget_category = "entertainment"
-            budget_entry = utils.get_input_only_digits("How much have you spent on entertainment:", 'Your amount can only contain digits, please try again!')
+            budget_entry = utils.get_input_only_digits(f"{colors.Colors.pink}How much have you spent on entertainment:{colors.Colors.white}", 'Your amount can only contain digits, please try again!')
         elif selected_option == "4":
             budget_category = "other"
-            budget_entry = utils.get_input_only_digits("How much have you spent on other:", 'Your amount can only contain digits, please try again!')
+            budget_entry = utils.get_input_only_digits(f"{colors.Colors.pink}How much have you spent on other:{colors.Colors.white}", 'Your amount can only contain digits, please try again!')
         elif selected_option == "5":
             add_more = False
         else:
@@ -44,4 +44,4 @@ def save_budget_entry(active_user_id):
 
         new_budget_id = utils.give_data_id('budget entries')  # Gets the entry a unique id 
         entry = [new_budget_id, active_user_id, active_budget['id'], budget_category, budget_entry]  # Saves data in a list
-        utils.save_data_to_worksheet('budget entries', entry) 
+        utils.save_data_to_worksheet('budget entries', entry)

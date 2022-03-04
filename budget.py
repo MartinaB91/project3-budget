@@ -5,19 +5,19 @@ import colors
 def create_budget(active_user):
     """ Used for creating a new budget. The user writes
     name of budget, sum of how much they want to spend."""
-    colors.print_text_color_purple("Let's create a new budget!")
-    budget_name = input("Give your budget a name: \n")
+    colors.print_text_color_purple("Let's create a new budget!\n")
+    budget_name = input(f"{colors.Colors.pink}Give your budget a name:{colors.Colors.white} \n")
     colors.print_text_color_purple(
-        f"The name of your new budget is {budget_name}. Now let's enter the amount for each category."
+        f"The name of your new budget is {budget_name}. Now let's enter the amount for each category.\n"
     )
-    sum_shopping = utils.get_input_only_digits("How much do you want to budget for shopping? \n", 'Your amount can only contain digits, please try again!')
-    sum_food = utils.get_input_only_digits("How much do you want to budget for food? \n", 'Your amount can only contain digits, please try again!')
-    sum_entertainment = utils.get_input_only_digits("How much do you want to budget for entertainment? \n", 'Your amount can only contain digits, please try again!')
-    sum_other = utils.get_input_only_digits("How much do you want to budget for other things? \n", 'Your amount can only contain digits, please try again!')
+    sum_shopping = utils.get_input_only_digits(f"{colors.Colors.pink}How much do you want to budget for shopping?{colors.Colors.white} \n", 'Your amount can only contain digits, please try again!')
+    sum_food = utils.get_input_only_digits(f"{colors.Colors.pink}How much do you want to budget for food?{colors.Colors.white} \n", 'Your amount can only contain digits, please try again!')
+    sum_entertainment = utils.get_input_only_digits(f"{colors.Colors.pink}How much do you want to budget for entertainment?{colors.Colors.white} \n", 'Your amount can only contain digits, please try again!')
+    sum_other = utils.get_input_only_digits(f"{colors.Colors.pink}How much do you want to budget for other things?{colors.Colors.white} \n", 'Your amount can only contain digits, please try again!')
     new_budget_id = utils.give_data_id('budgets')
     sum_total = [new_budget_id, active_user, budget_name, sum_shopping, sum_food, sum_entertainment, sum_other, 'active']
     utils.save_data_to_worksheet('budgets', sum_total) 
-    colors.print_text_color_yellow(f"Your budget is as follows: \nShopping: {sum_shopping:>15} \nFood: {sum_food:>19} \nEntertainment: {sum_entertainment:>10} \nOther: {sum_other:>11}\n")
+    colors.print_text_color_green(f"Your budget is as follows: \nShopping: {sum_shopping:>15} \nFood: {sum_food:>19} \nEntertainment: {sum_entertainment:>10} \nOther: {sum_other:>18}\n")
 
 
 def get_budget_summary(active_user_id):
@@ -51,5 +51,5 @@ def get_budget_summary(active_user_id):
         if all_budget_entries[i]['category'] == 'other':
             sum_other = sum_other + all_budget_entries[i]['amount']
 
-    colors.print_text_color_yellow(f'Your have spent following on: \nShopping: {sum_shopping:>16} of total {active_budget["shopping"]} \nFood: {sum_food:>19} of total {active_budget["food"]}\nEntertainment: {sum_entertainment:>10} of total {active_budget["entertainment"]} \nOther: {sum_other:>18} of total {active_budget["other"]}\n')
+    colors.print_text_color_green(f'Your have spent following on: \nShopping: {sum_shopping:>15} of total {active_budget["shopping"]} \nFood: {sum_food:>19} of total {active_budget["food"]}\nEntertainment: {sum_entertainment:>10} of total {active_budget["entertainment"]} \nOther: {sum_other:>18} of total {active_budget["other"]}\n')
 

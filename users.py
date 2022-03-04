@@ -1,22 +1,23 @@
 import utils
 import colors
+from emoji import emojize
 
 
 def save_new_user_to_worksheet():
     """Reads user inputs, give the user a unique id and save user
     input to worksheet."""
     user_fname = utils.get_input_only_letters(
-        "Enter your firstname:\n",
+        (f"{colors.Colors.pink}Enter your firstname:{colors.Colors.white}\n"),
         "Your firstname can only contain letters, please try again!\n",
     )
     user_lname = utils.get_input_only_letters(
-        "Enter your lastname:\n",
+        (f"{colors.Colors.pink}Enter your lastname:{colors.Colors.white}\n"),
         "Your lastname can only contain letters, please try again!\n",
     )
-    username = input("Enter your username: \n")
+    username = input(f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n")
     new_user_id = utils.give_data_id("users")
     # saves data in a list
-    user = [new_user_id, username, user_fname, user_lname] 
+    user = [new_user_id, username, user_fname, user_lname]
     utils.save_data_to_worksheet("users", user)
     return user
 
@@ -24,20 +25,21 @@ def save_new_user_to_worksheet():
 def get_active_user():
     """Prints user menu options and let the user enter a username.
     Depending on user selection the function return active user(old or new user)."""
-    colors.print_text_color_purple("Welcome to your budget program.\n")
+    #  Emojis. Inspiration from: https://unicode.org/emoji/charts/full-emoji-list.html and https://www.codegrepper.com/code-examples/python/import+emoji+in+python
+    colors.print_text_color_green(emojize(":money_bag: " + ":euro_banknote: " + "Welcome to your budget program" + " :money_bag:" + " :euro_banknote:\n"))
     menu_options = "1. Enter your username. \n2. Create a new user.\n"
     colors.print_text_color_blue(menu_options)
     selected_option = input("Please select a menu option (1-2): \n")
 
     if selected_option == "1":
-        username_input = input("Enter your username: \n")
+        username_input = input(f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n")
         users = utils.get_all_info_from_worksheet("users")
 
         """Search in all saved user in sheet to find if entered name is a user. 
         Inspiration from: https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python"""
         active_user = [dict for dict in users if dict["username"] == username_input]
         if any(active_user):
-            colors.print_text_color_purple(f"Hi, {username_input} good to have you back!")
+            colors.print_text_color_purple(emojize(f"Hi, {username_input} good to have you back!" + ":slightly_smiling_face:\n"))
             return active_user
         else:
             colors.print_text_color_red(

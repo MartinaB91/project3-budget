@@ -116,3 +116,4 @@ def change_status_budget(active_user_id):
     active_budget = get_active_budget(active_user_id)  # Choosen active budget
     worksheet = SHEET.worksheet('budgets')
     worksheet.update('H' + str(active_budget['id'] + 1), 'inactive')
+    colors.print_text_color_green(f"Your budget {active_budget['budget_name']} is now ended \n")
