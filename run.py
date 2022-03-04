@@ -16,14 +16,14 @@ def start_program():
 def select_menu_option(active_user):
     """Present user with menu options over what choises they have
     and what they can do in this program."""
+    colors.print_text_color_purple("What do you want to do? \n")
     menu_options = (
-        "What do you want to do? \n"
         "1. Create a new budget. \n"
         "2. Add purchase to ongoing budget. \n"
         "3. Get a summary of ongoing budget. \n"
         "4. End ongoing budget. \n"
     )
-    colors.text_color_blue(menu_options)
+    colors.print_text_color_blue(menu_options)
 
     selected_option = utils.get_input_only_digits(
         "Please select a menu option (1-4): \n",
@@ -41,7 +41,7 @@ def select_menu_option(active_user):
     elif selected_option == "4":
         utils.change_status_budget(active_user[0]["id"])
     else:
-        colors.text_color_red(
+        colors.print_text_color_red(
             f"{selected_option} is not a valid menu option. Please try again.\n"
         )
 

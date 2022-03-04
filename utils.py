@@ -61,7 +61,7 @@ def get_active_budget(active_user):
             The menu options need to be changeable.
             """
             menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
-            print(menu_options)
+            colors.print_text_color_blue(menu_options)
  
     try_again = True
     while try_again:
@@ -71,7 +71,8 @@ def get_active_budget(active_user):
         if budget_index in range(0, menu_option):
             try_again = False
         else:
-            colors.text_color_red(f"{selected_option} is not a valid menu option. Please try again.\n")
+            #  Prints text of error message in color red.
+            colors.print_text_color_red(f"{selected_option} is not a valid menu option. Please try again.\n")
 
     active_budget = active_user_budgets[budget_index]
     return active_budget
@@ -87,7 +88,7 @@ def get_input_only_letters(print_statement_enter, print_statement_error_message)
         if user_input.isalpha():
             try_again = False
         else:
-            colors.text_color_red(print_statement_error_message)
+            colors.print_text_color_red(print_statement_error_message)
     return user_input
 
 
@@ -101,17 +102,17 @@ def get_input_only_digits(print_statement_enter, print_statement_error_message):
         if user_input.isdigit():
             try_again = False
             if user_input.startswith('0'):  # Checks if first digit is zero. Try again if it is. 
-                colors.text_color_red("Your amount can't start with 0, please try again!")
+                colors.print_text_color_red("Your amount can't start with 0, please try again!")
                 try_again = True
         else:
-            colors.text_color_red(print_statement_error_message)
+            colors.print_text_color_red(print_statement_error_message)
     return user_input
 
 
 def change_status_budget(active_user_id):
     """ Changes status on active budgets to inactive.
     """
-    print('Wich budget do you want to end?\n')
+    colors.print_text_color_purple('Wich budget do you want to end?\n')
     active_budget = get_active_budget(active_user_id)  # Choosen active budget
     worksheet = SHEET.worksheet('budgets')
     worksheet.update('H' + str(active_budget['id'] + 1), 'inactive')

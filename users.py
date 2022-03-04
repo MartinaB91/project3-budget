@@ -24,9 +24,9 @@ def save_new_user_to_worksheet():
 def get_active_user():
     """Prints user menu options and let the user enter a username.
     Depending on user selection the function return active user(old or new user)."""
-    print("Welcome to your budget program.\n")
+    colors.print_text_color_purple("Welcome to your budget program.\n")
     menu_options = "1. Enter your username. \n2. Create a new user.\n"
-    colors.text_color_blue(menu_options)
+    colors.print_text_color_blue(menu_options)
     selected_option = input("Please select a menu option (1-2): \n")
 
     if selected_option == "1":
@@ -37,10 +37,10 @@ def get_active_user():
         Inspiration from: https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python"""
         active_user = [dict for dict in users if dict["username"] == username_input]
         if any(active_user):
-            print(f"Hi, {username_input} good to have you back!")
+            colors.print_text_color_purple(f"Hi, {username_input} good to have you back!")
             return active_user
         else:
-            colors.text_color_red(
+            colors.print_text_color_red(
                 f"The username you have entered, {username_input} doesn't exist. Please try again"
             )
             get_active_user()
@@ -49,7 +49,7 @@ def get_active_user():
         active_user = save_new_user_to_worksheet()
         return active_user
     else:  # Used when no valid menu option is selected. Call function to let user try again.
-        colors.text_color_red(
+        colors.print_text_color_red(
             f"{selected_option} is not a valid menu option. Please try again."
         )
         get_active_user()
