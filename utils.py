@@ -57,7 +57,8 @@ def get_active_budget(active_user):
             active_user_budgets.append(all_budgets[i])
             menu_option = menu_option + 1
 
-            """Because a user can have any number of budgets. 
+            """
+            Because a user can have any number of budgets. 
             The menu options need to be changeable.
             """
             menu_options = f"{menu_option}. {all_budgets[i]['budget_name']} [{all_budgets[i]['status']}]\n"
@@ -121,3 +122,17 @@ def change_status_budget(active_user_id):
         colors.print_text_color_green(f"Your budget {active_budget['budget_name']} is now ended \n")
     else:
         colors.print_text_color_red(f"Your budget {active_budget['budget_name']} is already ended \n")
+
+
+def check_if_user_has_budget(active_user_id):
+    """ Checks if active user has an active budget."""
+    all_budgets = get_all_info_from_worksheet('budgets')
+    for budget in all_budgets:
+        """ 
+        Loops through all budgets to find if users has any budget(s).
+        If user have any budgets, return True else False.
+        """
+        if budget['user_id'] == active_user_id:
+            return True
+
+    return False
