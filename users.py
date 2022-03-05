@@ -14,7 +14,16 @@ def save_new_user_to_worksheet():
         (f"{colors.Colors.pink}Enter your lastname:{colors.Colors.white}\n"),
         "Your lastname can only contain letters, please try again!\n",
     )
-    username = input(f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n")
+    users = utils.get_all_info_from_worksheet("users")
+    try_again = True
+    while try_again == True:  # As long as user select a taken username the system ask user for another username.
+        username = input(f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n")
+        user_class_list = [dict for dict in users if dict["username"] == username]
+        if len(user_class_list) == 0:  # If list contains no user, username is not taken.
+            try_again = False
+        else:
+            colors.print_text_color_red('This username is already taken, please try another username!')
+            
     new_user_id = utils.give_data_id("users")
     # saves data in a list
     user = [new_user_id, username, user_fname, user_lname]
