@@ -37,8 +37,16 @@ def get_active_user():
 
         """Search in all saved user in sheet to find if entered name is a user. 
         Inspiration from: https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python"""
-        active_user = [dict for dict in users if dict["username"] == username_input]
-        if any(active_user):
+        active_user_class_list = [dict for dict in users if dict["username"] == username_input]
+      
+        if len(active_user_class_list) != 0:  #  If the list contain a user do this.
+            #  Save data to dictionary.
+            active_user = {
+                'id': active_user_class_list[0]['id'],
+                'username': active_user_class_list[0]['username'],
+                'first_name': active_user_class_list[0]['first_name'],
+                'last_name': active_user_class_list[0]['last_name']
+            }
             colors.print_text_color_purple(emojize(f"Hi, {username_input} good to have you back!" + ":slightly_smiling_face:\n"))
             return active_user
         else:
@@ -48,7 +56,15 @@ def get_active_user():
             get_active_user()
 
     elif selected_option == "2":
-        active_user = save_new_user_to_worksheet()
+        active_user_class_list = save_new_user_to_worksheet()
+        #  Save data to dictionary.
+        active_user = {
+            'id': active_user_class_list[0],
+            'username': active_user_class_list[1],
+            'first_name': active_user_class_list[2],
+            'last_name': active_user_class_list[3]
+        }
+      
         return active_user
     else:  # Used when no valid menu option is selected. Call function to let user try again.
         colors.print_text_color_red(
