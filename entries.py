@@ -3,20 +3,19 @@ import colors
 
 
 def save_budget_entry(active_user_id):
-    """ Todo: add comment"""
+    """ 
+    Saves purchases to choosen active budget.
+    Gives the user different entry options(menu options), reads user input,
+    gives the new entry a unique id and save information about the entry, active user and 
+    budget and saves to worksheet. 
+    """
     colors.print_text_color_purple('Wich budget would you like to add purchase to?\n')
     active_budget = utils.get_active_budget(active_user_id)
-    print(active_budget['status'])
 
-    ###
-    if active_budget['status'] == 'active':
-
+    if active_budget['status'] == 'active':  # Do this if budget is active. 
         add_more = True
         # Loop continues until user select option "Done".
         while add_more:
-            """ Gives the user different entry options(menu options), reads user input,
-            gives the new entry a unique id and save information about the entry, active user and 
-            budget and saves to worksheet."""
             menu_options = (
                 "1. Shopping. \n"
                 "2. Food. \n"

@@ -62,7 +62,7 @@ def get_active_user():
             colors.print_text_color_red(
                 f"The username you have entered, {username_input} doesn't exist. Please try again"
             )
-            get_active_user()
+            return get_active_user()
 
     elif selected_option == "2":
         active_user_class_list = save_new_user_to_worksheet()
@@ -79,4 +79,4 @@ def get_active_user():
         colors.print_text_color_red(
             f"{selected_option} is not a valid menu option. Please try again."
         )
-        get_active_user()
+        return get_active_user()

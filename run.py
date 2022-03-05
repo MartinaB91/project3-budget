@@ -9,6 +9,7 @@ def start_program():
     """ Starts the program, let the user log in and
     restarts program after ended user operation."""
     active_user = users.get_active_user()
+
     while True:  # Infinity loop
         select_menu_option(active_user)
         
