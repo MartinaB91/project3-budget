@@ -18,12 +18,19 @@ def save_new_user_to_worksheet():
     try_again = True
     while try_again == True:  # As long as user select a taken username the system ask user for another username.
         username = input(f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n")
-        user_class_list = [dict for dict in users if dict["username"] == username]
-        if len(user_class_list) == 0:  # If list contains no user, username is not taken.
-            try_again = False
-        else:
-            colors.print_text_color_red('This username is already taken, please try another username!')
-            
+
+        """ Inspiration from: https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/
+        and https://stackoverflow.com/questions/2405292/check-if-string-contains-only-whitespace
+        """
+        if len(username) != 0 and username.isspace() is False: 
+            user_class_list = [dict for dict in users if dict["username"] == username]
+            if len(user_class_list) == 0:  # If list contains no user, username is not taken.
+                try_again = False
+            else:
+                colors.print_text_color_red('This username is already taken, please try another username!')
+        else:  #  If username is empty or only blank spaces print this. 
+            colors.print_text_color_red("Your username can't be empty")
+   
     new_user_id = utils.give_data_id("users")
     # saves data in a list
     user = [new_user_id, username, user_fname, user_lname]
