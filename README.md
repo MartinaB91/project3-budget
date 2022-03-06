@@ -23,5 +23,6 @@
 ## Bugs corrections and improvements 
 ### Unfixed bugs
 ### Solved bugs
+-	System crash when user creates a new user then goes directly to option “Create a new budget”. When user data came from input the data type of active_user was different compared to when data was read from worksheet. Solved by changing data type of active_user. 
 ## Deployment
 ## Credits
