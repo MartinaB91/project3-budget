@@ -1,5 +1,5 @@
 """
-Holds functions related to user
+Holds functions related to user.
 """
 from emoji import emojize
 import utils
