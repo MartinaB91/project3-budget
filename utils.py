@@ -19,7 +19,7 @@ def save_data_to_worksheet(worksheet_name, data):
     """ Saves data to selected worksheet using parameters.
     """
     worksheet = SHEET.worksheet(worksheet_name)
-    worksheet.append_row(data)  # Appends list to selected worksheet
+    worksheet.append_row(data)  # Appends list to selected worksheet.
   
         
 def get_all_info_from_worksheet(worksheet_name):
@@ -30,17 +30,17 @@ def get_all_info_from_worksheet(worksheet_name):
     return data
 
 
-# Todo: Change so if the sheet is empty user_id = 1
+#  Todo: Change so if the sheet is empty user_id = 1
 def give_data_id(worksheet_name):  
     """ Gives the data a unique id by adding 1 to the last number in lenght """
     data_in_worksheet = get_all_info_from_worksheet(worksheet_name)
-    # Counts number of users and adds one to get unique id. 
-    new_id = len(data_in_worksheet) + 1   
+    # Counts number of users and adds one to get unique id.
+    new_id = len(data_in_worksheet) + 1
     return new_id
 
 
 def get_active_budget(active_user):
-    """ Get active users budget(s) and prints them so the user 
+    """ Get active users budget(s) and prints them so the user
     can choose budget before making an entry."""
     all_budgets = get_all_info_from_worksheet('budgets')
     menu_option = 0
