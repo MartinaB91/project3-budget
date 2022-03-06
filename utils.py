@@ -103,7 +103,7 @@ def get_input_only_digits(print_statement_enter, print_statement_error_message):
         if user_input.isdigit():
             try_again = False
             if user_input.startswith('0'):  # Checks if first digit is zero. Try again if it is. 
-                colors.print_text_color_red("Your amount can't start with 0, please try again!")
+                colors.print_text_color_red("Your number can't start with 0, please try again!")
                 try_again = True
         else:
             colors.print_text_color_red(print_statement_error_message)
@@ -114,14 +114,14 @@ def change_status_budget(active_user_id):
     """ 
     Changes status on active budgets to inactive if budget status is active. 
     """
-    colors.print_text_color_purple('Wich budget do you want to end?\n')
+    colors.print_text_color_purple('Which budget do you want to end?\n')
     active_budget = get_active_budget(active_user_id)  # Choosen active budget
     if active_budget['status'] == 'active': 
         worksheet = SHEET.worksheet('budgets')
         worksheet.update('H' + str(active_budget['id'] + 1), 'inactive')
-        colors.print_text_color_green(f"Your budget {active_budget['budget_name']} is now ended \n")
+        colors.print_text_color_green(f"Your budget {active_budget['budget_name']} is now ended! \n")
     else:
-        colors.print_text_color_red(f"Your budget {active_budget['budget_name']} is already ended \n")
+        colors.print_text_color_red(f"Your budget {active_budget['budget_name']} is already ended! \n")
 
 
 def check_if_user_has_budget(active_user_id):

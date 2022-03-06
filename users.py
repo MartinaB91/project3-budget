@@ -81,7 +81,7 @@ def get_active_user():
             'first_name': active_user_class_list[2],
             'last_name': active_user_class_list[3]
         }
-        colors.print_text_color_green(f"Your user {active_user['username']} has been saved\n")
+        colors.print_text_color_green(f"Your user {active_user['username']} has been saved!\n")
       
         return active_user
     else:  # Used when no valid menu option is selected. Call function to let user try again.

@@ -9,7 +9,7 @@ def save_budget_entry(active_user_id):
     gives the new entry a unique id and save information about the entry, active user and 
     budget and saves to worksheet. 
     """
-    colors.print_text_color_purple('Wich budget would you like to add purchase to?\n')
+    colors.print_text_color_purple('Which budget would you like to add purchase to?\n')
     active_budget = utils.get_active_budget(active_user_id)
 
     if active_budget['status'] == 'active':  # Do this if budget is active. 

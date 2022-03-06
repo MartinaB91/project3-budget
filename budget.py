@@ -31,7 +31,7 @@ def create_budget(active_user):
 
 def get_budget_summary(active_user_id):
     """ Gets all entries in active budget, summarize and print. """
-    colors.print_text_color_purple('Wich budget would you like a summary of?\n')
+    colors.print_text_color_purple('Which budget would you like a summary of?\n')
     active_budget = utils.get_active_budget(active_user_id)
     all_budget_entries = utils.get_all_info_from_worksheet('budget entries')
 
