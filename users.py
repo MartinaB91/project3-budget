@@ -72,6 +72,7 @@ def get_active_user():
             return get_active_user()
 
     elif selected_option == "2":
+        colors.print_text_color_purple("Let's create a new user!\n")
         active_user_class_list = save_new_user_to_worksheet()
         #  Save data to dictionary.
         active_user = {
@@ -80,6 +81,7 @@ def get_active_user():
             'first_name': active_user_class_list[2],
             'last_name': active_user_class_list[3]
         }
+        colors.print_text_color_green(f"Your user {active_user['username']} has been saved\n")
       
         return active_user
     else:  # Used when no valid menu option is selected. Call function to let user try again.

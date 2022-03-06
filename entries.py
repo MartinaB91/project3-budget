@@ -47,6 +47,7 @@ def save_budget_entry(active_user_id):
                 print(f"{selected_option} is not a valid menu option. Please try again.\n")
 
             if add_more == True:
+                colors.print_text_color_green('Your purchase has been saved!\n')
                 new_budget_id = utils.give_data_id('budget entries')  # Gets the entry a unique id 
                 entry = [new_budget_id, active_user_id, active_budget['id'], budget_category, budget_entry]  # Saves data in a list
                 utils.save_data_to_worksheet('budget entries', entry)
