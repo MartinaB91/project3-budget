@@ -124,7 +124,7 @@ def get_active_user():
             'last_name': active_user_class_list[3]
         }
         colors.print_text_color_green(
-            f"Your user {active_user['username']} has been saved!\n")
+            f"\nYour user {active_user['username']} has been saved!\n")
 
         return active_user
     else:
