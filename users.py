@@ -42,7 +42,7 @@ def get_active_user():
     """Prints user menu options and let the user enter a username.
     Depending on user selection the function return active user(old or new user)."""
     #  Emojis. Inspiration from: https://unicode.org/emoji/charts/full-emoji-list.html and https://www.codegrepper.com/code-examples/python/import+emoji+in+python
-    colors.print_text_color_green(emojize(":money_bag: " + ":euro_banknote: " + "Welcome to your budget program" + " :money_bag:" + " :euro_banknote:\n"))
+    colors.print_text_color_green(emojize(":euro_banknote: " + ":money_bag: " + "Welcome to your budget program" + " :money_bag:" + " :euro_banknote:\n"))
     menu_options = "1. Enter your username. \n2. Create a new user.\n"
     colors.print_text_color_blue(menu_options)
     selected_option = input("Please select a menu option (1-2): \n")
