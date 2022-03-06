@@ -29,7 +29,7 @@ def create_budget(active_user):
 
     colors.print_text_color_purple(
         f"The name of your new budget is {budget_name}."
-        f" Now let's enter the amount for each category.\n"
+        " Now let's enter the amount for each category.\n"
     )
     sum_shopping = utils.get_input_only_digits(
         f'{colors.Colors.pink}'
@@ -68,7 +68,7 @@ def create_budget(active_user):
         ]
     utils.save_data_to_worksheet('budgets', sum_total)
     colors.print_text_color_green(
-        f'\nYour budget is as follows:\n'
+        '\nYour budget is as follows:\n'
         f'Shopping: {sum_shopping:>15}\n'
         f'Food: {sum_food:>19}\n'
         f'Entertainment: {sum_entertainment:>10}\n'
@@ -119,7 +119,7 @@ def get_budget_summary(active_user_id):
             sum_other = sum_other + all_budget_entries[i]['amount']
 
     colors.print_text_color_green(
-        f'\nYour have spent following on:\n'
+        '\nYour have spent following on:\n'
         f"Shopping: {sum_shopping:>15} of total {active_budget['shopping']}\n"
         f"Food: {sum_food:>19} of total {active_budget['food']}\n"
         f"Entertainment: {sum_entertainment:>10} of total"

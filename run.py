@@ -1,3 +1,6 @@
+"""
+Main
+"""
 import users
 import utils
 import budget
@@ -45,10 +48,13 @@ def select_menu_option(active_user):
     elif selected_option == "4" and user_has_budget:
         utils.change_status_budget(active_user["id"])
     elif user_has_budget is False:
-        colors.print_text_color_red('Please choose menu option 1 to create a budget.')
+        colors.print_text_color_red(
+            'Please choose menu option 1 to create a budget.'
+            )
     else:
         colors.print_text_color_red(
-            f"{selected_option} is not a valid menu option. Please try again.\n"
+            f'{selected_option} is not a valid menu option.'
+            'Please try again.\n'
         )
 
 
