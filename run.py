@@ -12,8 +12,8 @@ def start_program():
 
     while True:  # Infinity loop
         select_menu_option(active_user)
-        
-    
+
+
 def select_menu_option(active_user):
     """Present user with menu options over what choises they have
     and what they can do in this program."""
@@ -28,15 +28,15 @@ def select_menu_option(active_user):
 
     selected_option = utils.get_input_only_digits(
         "Please select a menu option (1-4): \n",
-        "Your option can only contain digits, please try again!" 
+        "Your option can only contain digits, please try again!"
     )
     user_has_budget = utils.check_if_user_has_budget(active_user['id'])
 
-    """ 
-    Depending on what choice the user choose it will lead to 
-    different 'pages'. Every page has it's own function. 
     """
-    if selected_option == "1": 
+    Depending on what choice the user choose it will lead to
+    different 'pages'. Every page has it's own function.
+    """
+    if selected_option == "1":
         budget.create_budget(active_user["id"])
     elif selected_option == "2" and user_has_budget:
         entries.save_budget_entry(active_user["id"])
@@ -44,7 +44,7 @@ def select_menu_option(active_user):
         budget.get_budget_summary(active_user["id"])
     elif selected_option == "4" and user_has_budget:
         utils.change_status_budget(active_user["id"])
-    elif user_has_budget == False:
+    elif user_has_budget is False:
         colors.print_text_color_red('Please choose menu option 1 to create a budget.')
     else:
         colors.print_text_color_red(

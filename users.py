@@ -22,13 +22,13 @@ def save_new_user_to_worksheet():
         """ Inspiration from: https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/
         and https://stackoverflow.com/questions/2405292/check-if-string-contains-only-whitespace
         """
-        if len(username) != 0 and username.isspace() is False: 
+        if len(username) != 0 and username.isspace() is False:
             user_class_list = [dict for dict in users if dict["username"] == username]
             if len(user_class_list) == 0:  # If list contains no user, username is not taken.
                 try_again = False
             else:
                 colors.print_text_color_red('This username is already taken, please try another username!')
-        else:  #  If username is empty or only blank spaces print this. 
+        else:  #  If username is empty or only blank spaces print this.
             colors.print_text_color_red("Your username can't be empty")
    
     new_user_id = utils.give_data_id("users")
@@ -51,7 +51,7 @@ def get_active_user():
         username_input = input(f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n")
         users = utils.get_all_info_from_worksheet("users")
 
-        """Search in all saved user in sheet to find if entered name is a user. 
+        """Search in all saved user in sheet to find if entered name is a user.
         Inspiration from: https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python"""
         active_user_class_list = [dict for dict in users if dict["username"] == username_input]
       
