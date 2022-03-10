@@ -39,9 +39,7 @@ def save_budget_entry(active_user_id):
                 'Your option can only contain digits, please try again!'
                 )
 
-            """
-            Prints menu options for budgets entries and reads inputs.
-            """
+            # Prints menu options for budgets entries and reads inputs.
             if selected_option == "1":
                 budget_category = "shopping"
                 budget_entry = utils.get_input_only_digits(

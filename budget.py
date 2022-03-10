@@ -10,10 +10,8 @@ def create_budget(active_user):
     name of budget, sum of how much they want to spend."""
     colors.print_text_color_purple("Let's create a new budget!\n")
 
-    """
-    As long as chosen budget name is empty or only
-    contains spaces ask for new budget name.
-    """
+    # As long as chosen budget name is empty or only
+    # contains spaces ask for new budget name.
     try_again = True
     while try_again is True:
         budget_name = input(
@@ -89,11 +87,9 @@ def get_budget_summary(active_user_id):
     active_budget_entries = []
 
     for i in range(len(all_budget_entries)):
-        """
-        Loops through all budgets entries to find
-        active budget entries.If a budget entry has the
-        same budget id as the active budget, the entry is appended to list.
-        """
+        # Loops through all budgets entries to find
+        # active budget entries.If a budget entry has the
+        # same budget id as the active budget, the entry is appended to list.
         if all_budget_entries[i]['budget_id'] == active_budget['id']:
             active_budget_entries.append(all_budget_entries[i])
 
@@ -103,10 +99,8 @@ def get_budget_summary(active_user_id):
     sum_other = 0
 
     for i in range(len(active_budget_entries)):
-        """
-        Loops through active budget entries and sort/summarize every
-        entry in a variable depending on which budget category it belongs to.
-        """
+        # Loops through active budget entries and sort/summarize every
+        # entry in a variable depending on which budget category it belongs to.
         if all_budget_entries[i]['category'] == 'shopping':
             sum_shopping = sum_shopping + all_budget_entries[i]['amount']
         if all_budget_entries[i]['category'] == 'food':

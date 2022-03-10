@@ -19,20 +19,18 @@ def save_new_user_to_worksheet():
     )
     users = utils.get_all_info_from_worksheet("users")
     try_again = True
-    """
-    As long as user select a taken username
-    the system ask user for another username.
-    """
+    
+    # As long as user select a taken username
+    # the system ask user for another username.
     while try_again is True:
         username = input(
             f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n"
             )
-        """
-        Inspiration from:
-        https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/
-        and https://stackoverflow.com/questions/2405292/
-        check-if-string-contains-only-whitespace
-        """
+        
+        # Inspiration from:
+        # https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/
+        # and https://stackoverflow.com/questions/2405292/
+        # check-if-string-contains-only-whitespace
         if len(username) != 0 and username.isspace() is False:
             user_class_list = [
                 dict for dict in users if dict["username"] == username
@@ -60,11 +58,11 @@ def get_active_user():
     Prints user menu options and let the user
     enter a username. Depending on user selection
     the function return active user(old or new user).
-
-    Emojis. Inspiration from:
-    https://unicode.org/emoji/charts/full-emoji-list.html and
-    https://www.codegrepper.com/code-examples/python/import+emoji+in+python
     """
+
+    # Emojis. Inspiration from:
+    # https://unicode.org/emoji/charts/full-emoji-list.html and
+    # https://www.codegrepper.com/code-examples/python/import+emoji+in+python
     colors.print_text_color_green(
         emojize(":euro_banknote: "
                 + ":money_bag: "
@@ -83,12 +81,10 @@ def get_active_user():
             )
         users = utils.get_all_info_from_worksheet("users")
 
-        """
-        Search in all saved user in sheet to
-        find if entered name is a user. Inspiration from:
-        https://stackoverflow.com/questions/14790980/
-        how-can-i-check-if-key-exists-in-list-of-dicts-in-python
-        """
+        # Search in all saved user in sheet to
+        # find if entered name is a user. Inspiration from:
+        # https://stackoverflow.com/questions/14790980/
+        # how-can-i-check-if-key-exists-in-list-of-dicts-in-python
         active_user_class_list = [
             dict for dict in users if dict["username"] == username_input
             ]
@@ -128,10 +124,8 @@ def get_active_user():
 
         return active_user
     else:
-        """
-        Used when no valid menu option is selected.
-        Call function to let user try again.
-        """
+        # Used when no valid menu option is selected.
+        # Call function to let user try again.
         colors.print_text_color_red(
             f"{selected_option} is not a valid menu option. Please try again."
         )

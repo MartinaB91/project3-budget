@@ -57,18 +57,14 @@ def get_active_budget(active_user):
     active_user_budgets = []
 
     for i in range(len(all_budgets)):
-        """
-        Loops through all budgets to find active users budget(s).
-        If a budget has the same user id as the active user,
-        the budget is appended to list.
-        """
+        # Loops through all budgets to find active users budget(s).
+        # If a budget has the same user id as the active user,
+        # the budget is appended to list.
         if all_budgets[i]['user_id'] == active_user:
             active_user_budgets.append(all_budgets[i])
             menu_option = menu_option + 1
-            """
-            Because a user can have any number of budgets.
-            The menu options need to be changeable.
-            """
+            # Because a user can have any number of budgets.
+            # The menu options need to be changeable.
             menu_options = (
                 f"{menu_option}."
                 f"{all_budgets[i]['budget_name']}"
@@ -82,15 +78,11 @@ def get_active_budget(active_user):
             f'Please select a menu option: 1-{menu_option}\n',
             'Your option can only contain digits, please try again!'
             )
-        """
-        Index is always off by one. To get index value,
-        subtract one from selected option.
-        """
+        # Index is always off by one. To get index value,
+        # subtract one from selected option.
         budget_index = int(selected_option) - 1
-        """
-        Inspiration from: https://www.tutorialkart.com/python/python-range/
-        python-if-in-range/
-        """
+        # Inspiration from: https://www.tutorialkart.com/python/python-range/
+        # python-if-in-range/
         if budget_index in range(0, menu_option):
             try_again = False
         else:
@@ -169,10 +161,8 @@ def check_if_user_has_budget(active_user_id):
     """
     all_budgets = get_all_info_from_worksheet('budgets')
     for budget in all_budgets:
-        """
-        Loops through all budgets to find if users has any budget(s).
-        If user have any budgets, return True else False.
-        """
+        # Loops through all budgets to find if users has any budget(s).
+        # If user have any budgets, return True else False.
         if budget['user_id'] == active_user_id:
             return True
 
