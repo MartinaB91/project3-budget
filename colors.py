@@ -1,7 +1,9 @@
 """
-Inspiration from:
- https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal
+Holds functions related to text colors.
 """
+
+# Inspiration from:
+# https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal
 
 
 class Colors:

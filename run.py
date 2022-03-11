@@ -51,8 +51,8 @@ def select_menu_option(active_user):
             )
     else:
         colors.print_text_color_red(
-            f'{selected_option} is not a valid menu option.'
-            'Please try again.\n'
+            f'{selected_option} is not a valid menu option,'
+            ' please try again!\n'
         )
 
 

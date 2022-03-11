@@ -18,14 +18,14 @@ def save_new_user_to_worksheet():
         "Your lastname can only contain letters, please try again!\n",
     )
     users = utils.get_all_info_from_worksheet("users")
-    
+
     # As long as user select a taken username
     # the system ask user for another username.
     while True:
         username = input(
             f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n"
             )
-        
+
         # Inspiration from:
         # https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/
         # and https://stackoverflow.com/questions/2405292/
@@ -104,7 +104,7 @@ def get_active_user():
         else:
             colors.print_text_color_red(
                 'The username you have entered,'
-                f"{username_input} doesn't exist. Please try again"
+                f"{username_input} doesn't exist, please try again!"
             )
             return get_active_user()
 
@@ -126,6 +126,6 @@ def get_active_user():
         # Used when no valid menu option is selected.
         # Call function to let user try again.
         colors.print_text_color_red(
-            f"{selected_option} is not a valid menu option. Please try again."
+            f"{selected_option} is not a valid menu option, please try again!"
         )
         return get_active_user()
