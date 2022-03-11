@@ -18,11 +18,10 @@ def save_new_user_to_worksheet():
         "Your lastname can only contain letters, please try again!\n",
     )
     users = utils.get_all_info_from_worksheet("users")
-    try_again = True
     
     # As long as user select a taken username
     # the system ask user for another username.
-    while try_again is True:
+    while True:
         username = input(
             f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n"
             )
@@ -37,11 +36,11 @@ def save_new_user_to_worksheet():
                 ]
             # If list contains no user, username is not taken.
             if len(user_class_list) == 0:
-                try_again = False
+                break
             else:
                 colors.print_text_color_red(
                     'This username is already taken,'
-                    'please try another username!'
+                    ' please try another username!'
                     )
         else:  # If username is empty or only blank spaces print this.
             colors.print_text_color_red("Your username can't be empty")

@@ -12,14 +12,13 @@ def create_budget(active_user):
 
     # As long as chosen budget name is empty or only
     # contains spaces ask for new budget name.
-    try_again = True
-    while try_again is True:
+    while True:
         budget_name = input(
             f'{colors.Colors.pink}Give your budget a name:'
             f'{colors.Colors.white}\n'
             )
         if len(budget_name) != 0 and budget_name.isspace() is False:
-            try_again = False
+            break
         else:
             colors.print_text_color_red(
                 "Your budget name can't be empty or only contain spaces!"
@@ -111,7 +110,9 @@ def get_budget_summary(active_user_id):
             )
         if all_budget_entries[i]['category'] == 'other':
             sum_other = sum_other + all_budget_entries[i]['amount']
-
+    colors.print_text_color_purple(
+        f"Your chosen budget is {active_budget['budget_name']}"
+        )
     colors.print_text_color_green(
         '\nYour have spent following on:\n'
         f"Shopping: {sum_shopping:>15} of total {active_budget['shopping']}\n"

@@ -72,8 +72,7 @@ def get_active_budget(active_user):
                 )
             colors.print_text_color_blue(menu_options)
 
-    try_again = True
-    while try_again:
+    while True:
         selected_option = get_input_only_digits(
             f'Please select a menu option: 1-{menu_option}\n',
             'Your option can only contain digits, please try again!'
@@ -84,12 +83,12 @@ def get_active_budget(active_user):
         # Inspiration from: https://www.tutorialkart.com/python/python-range/
         # python-if-in-range/
         if budget_index in range(0, menu_option):
-            try_again = False
+            break
         else:
             #  Prints text of error message in color red.
             colors.print_text_color_red(
-                f'{selected_option} is not a valid menu option.'
-                'Please try again.\n'
+                f'{selected_option} is not a valid menu option, '
+                ' please try again!\n'
                 )
 
     active_budget = active_user_budgets[budget_index]
@@ -104,11 +103,10 @@ def get_input_only_letters(
     Check if user input is only letters.
     If not, tell user and keep asking for input.
     """
-    try_again = True
-    while try_again:
+    while True:
         user_input = input(print_statement_enter)
         if user_input.isalpha():
-            try_again = False
+            break
         else:
             colors.print_text_color_red(print_statement_error_message)
     return user_input
@@ -122,16 +120,15 @@ def get_input_only_digits(
     Check if user input is only digits.
     If not, tell user and keep asking for input
     """
-    try_again = True
-    while try_again:
+    while True:
         user_input = input(print_statement_enter)
         if user_input.isdigit():
-            try_again = False
             # Checks if first digit is zero. Try again if it is.
             if user_input.startswith('0'):
                 colors.print_text_color_red(
                     "Your number can't start with 0, please try again!")
-                try_again = True
+            else:
+                break
         else:
             colors.print_text_color_red(print_statement_error_message)
     return user_input
