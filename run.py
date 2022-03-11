@@ -7,6 +7,12 @@ import budget
 import entries
 import colors
 
+# Constants used for menu options.
+CREATE_BUDGET_OPTION = '1'
+ADD_PURCHASE_OPTION = '2'
+GET_SUMMARY_OPTION = '3'
+END_BUDGET_OPTION = '4'
+
 
 def start_program():
     """ Starts the program, let the user log in and
@@ -37,13 +43,13 @@ def select_menu_option(active_user):
 
     # Depending on what choice the user choose it will lead to
     # different 'pages'. Every page has it's own function.
-    if selected_option == "1":
+    if selected_option == CREATE_BUDGET_OPTION:
         budget.create_budget(active_user["id"])
-    elif selected_option == "2" and user_has_budget:
+    elif selected_option == ADD_PURCHASE_OPTION and user_has_budget:
         entries.save_budget_entry(active_user["id"])
-    elif selected_option == "3" and user_has_budget:
+    elif selected_option == GET_SUMMARY_OPTION and user_has_budget:
         budget.get_budget_summary(active_user["id"])
-    elif selected_option == "4" and user_has_budget:
+    elif selected_option == END_BUDGET_OPTION and user_has_budget:
         utils.change_status_budget(active_user["id"])
     elif user_has_budget is False:
         colors.print_text_color_red(

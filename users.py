@@ -5,6 +5,10 @@ from emoji import emojize
 import utils
 import colors
 
+# Constants used for menu options.
+ENTER_USERNAME = '1'
+CREATE_NEW_USER = '2'
+
 
 def save_new_user_to_worksheet():
     """Reads user inputs, give the user a unique id and save user
@@ -73,7 +77,7 @@ def get_active_user():
     colors.print_text_color_blue(menu_options)
     selected_option = input("Please select a menu option (1-2): \n")
 
-    if selected_option == "1":
+    if selected_option == ENTER_USERNAME:
         username_input = input(
             f'{colors.Colors.pink}Enter your username:'
             f'{colors.Colors.white} \n'
@@ -108,7 +112,7 @@ def get_active_user():
             )
             return get_active_user()
 
-    elif selected_option == "2":
+    elif selected_option == CREATE_NEW_USER:
         colors.print_text_color_purple("Let's create a new user!\n")
         active_user_class_list = save_new_user_to_worksheet()
         #  Save data to dictionary.

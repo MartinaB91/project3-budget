@@ -4,6 +4,13 @@ Holds functions related to entries.
 import utils
 import colors
 
+# Constants used for menu options.
+SHOPPING_OPTION = '1'
+FOOD_OPTION = '2'
+ENTERTAINMENT_OPTION = '3'
+OTHER_OPTION = '4'
+DONE_OPTION = '5'
+
 
 def save_budget_entry(active_user_id):
     """
@@ -40,7 +47,7 @@ def save_budget_entry(active_user_id):
                 )
 
             # Prints menu options for budgets entries and reads inputs.
-            if selected_option == "1":
+            if selected_option == SHOPPING_OPTION:
                 budget_category = "shopping"
                 budget_entry = utils.get_input_only_digits(
                     f'{colors.Colors.pink}'
@@ -48,7 +55,7 @@ def save_budget_entry(active_user_id):
                     f'{colors.Colors.white}\n',
                     'Your amount can only contain digits, please try again!'
                     )
-            elif selected_option == "2":
+            elif selected_option == FOOD_OPTION:
                 budget_category = "food"
                 budget_entry = utils.get_input_only_digits(
                     f'{colors.Colors.pink}'
@@ -56,7 +63,7 @@ def save_budget_entry(active_user_id):
                     f'{colors.Colors.white}\n',
                     'Your amount can only contain digits, please try again!'
                     )
-            elif selected_option == "3":
+            elif selected_option == ENTERTAINMENT_OPTION:
                 budget_category = "entertainment"
                 budget_entry = utils.get_input_only_digits(
                     f'{colors.Colors.pink}'
@@ -64,7 +71,7 @@ def save_budget_entry(active_user_id):
                     f'{colors.Colors.white}\n',
                     'Your amount can only contain digits, please try again!'
                     )
-            elif selected_option == "4":
+            elif selected_option == OTHER_OPTION:
                 budget_category = "other"
                 budget_entry = utils.get_input_only_digits(
                     f'{colors.Colors.pink}'
@@ -72,7 +79,7 @@ def save_budget_entry(active_user_id):
                     f'{colors.Colors.white}\n',
                     'Your amount can only contain digits, please try again!'
                     )
-            elif selected_option == "5":
+            elif selected_option == DONE_OPTION:
                 add_more = False
             else:
                 print(
