@@ -1,8 +1,18 @@
 # Budget System
 ## Introduction
+Budget system is an aid for financially conscious private individuals who wants to be able to set a budget and then follow how much they spend on shopping, food, entertainment, and other things. In this program the user can create one or several budgets, add a purchase to chosen budget, get a summary of chosen budget and end chosen budget. 
 ## UX/Design 
 ### Text color
+This system contains five different colours. The colours contribute to make it more obvious for the user because they are following a certain pattern.  
+- Welcome message and text that confirms user choice for example created budget or ended budget have the colour of green. 
+- All menu options have the colour of blue. 
+- When the user is asked to choose a menu option the text have the colour of white.
+- If the user is asked to write in something else than a menu option the text have the colour of pink. 
+- All text that confirms for example active user and ask the user what they want to do next have the colour of purple.
+- All error messages have the colour of red.
+
 ### Emojis
+-	To make the system feel and fun more alive it contains these three emojis: 💰💶🙂
 ## Requirements 
 ### User stories
 - As a user, I want to be able to create a user account so that I can use the budget system.
@@ -13,7 +23,7 @@
 - As a user, I want to purchase to different budgets so that my purchase is saved in chosen budget.
 - As a user, I want to get a summary of my budget progress whenever I want so that I can follow my spendings.
 - As a user, I want to end chosen budget whenever I want so that the budget is not active because I am done.
-## Flow chart
+## Flowchart
 ## Features
 ### Create budget
 ### Budget entry
