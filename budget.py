@@ -92,6 +92,7 @@ def get_budget_summary(active_user_id):
         if all_budget_entries[i]['budget_id'] == active_budget['id']:
             active_budget_entries.append(all_budget_entries[i])
 
+
     sum_shopping = 0
     sum_food = 0
     sum_entertainment = 0
@@ -100,16 +101,16 @@ def get_budget_summary(active_user_id):
     for i in range(len(active_budget_entries)):
         # Loops through active budget entries and sort/summarize every
         # entry in a variable depending on which budget category it belongs to.
-        if all_budget_entries[i]['category'] == 'shopping':
-            sum_shopping = sum_shopping + all_budget_entries[i]['amount']
-        if all_budget_entries[i]['category'] == 'food':
-            sum_food = sum_food + all_budget_entries[i]['amount']
-        if all_budget_entries[i]['category'] == 'entertainment':
+        if active_budget_entries[i]['category'] == 'shopping':
+            sum_shopping = sum_shopping + active_budget_entries[i]['amount']
+        if active_budget_entries[i]['category'] == 'food':
+            sum_food = sum_food + active_budget_entries[i]['amount']
+        if active_budget_entries[i]['category'] == 'entertainment':
             sum_entertainment = (
-                sum_entertainment + all_budget_entries[i]['amount']
+                sum_entertainment + active_budget_entries[i]['amount']
             )
-        if all_budget_entries[i]['category'] == 'other':
-            sum_other = sum_other + all_budget_entries[i]['amount']
+        if active_budget_entries[i]['category'] == 'other':
+            sum_other = sum_other + active_budget_entries[i]['amount']
     colors.print_text_color_purple(
         f"Your chosen budget is {active_budget['budget_name']}"
         )

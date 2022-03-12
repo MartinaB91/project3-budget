@@ -74,7 +74,7 @@ def get_active_budget(active_user):
 
     while True:
         selected_option = get_input_only_digits(
-            f'Please select a menu option: 1-{menu_option}\n',
+            f'Please select a menu option: (1-{menu_option})\n',
             'Your option can only contain digits, please try again!'
             )
         # Index is always off by one. To get index value,
