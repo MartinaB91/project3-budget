@@ -24,38 +24,96 @@ This system contains five different colours. The colours contribute to make it m
 - As a user, I want to get a summary of my budget progress whenever I want so that I can follow my spendings.
 - As a user, I want to end chosen budget whenever I want so that the budget is not active because I am done.
 ## Flowchart
+
+<img src="readme_images/flowchart.jpg">
+
 ## Features
 ### Select user
 -	The first step in the system is that the user needs to confirm if they are a recurring user or a new user. This step is crucial for the usage of the system. By doing this the user only gets the data related to the specific user.
+
+<img src="readme_images/welcome_menu.PNG">
+
 ### Create user
 -	In this menu option the user will be able to create a new user by adding their information: first name, last name and username. A confirmation is shown if the user has been created. 
+
+<img src="readme_images/create_user.PNG">
+
 ### Create budget
 -	In this menu option the user will be able to create a budget by choosing a budget name and add spendings for each category. The user will be given a confirmation of chosen budget name and be presented with a summary of chosen budget spendings.
+
+<img src="readme_images/create_budget.PNG">
+
 ### Budget entry
 -	In this menu option the user will be able to choose and add a purchase to chosen budget. After added purchase the user will be presented with a text that confirms that the purchase has been added. 
+
+<img src="readme_images/budget_entry.PNG">
+
 ### Budget summary
 -	In this menu option the user will be able to choose a budget to get a summary of. So that they can see how much they have spent so far and how much that is left to spend.  The user will get a confirmation, in this case which budget they have chosen to get a summary of. 
+
+<img src="readme_images/budget_summary.PNG">
+
 ### End budget
 -	In this menu option the user will be able to end an ongoing budget (change it from active to inactive). This is to make it more clear for the user which budget that no longer is ongoing.  
 -	The user can’t add a purchase to an ended budget, but they still can get a summary of the budget. This is because they may want to go back and compare one budget with another.
+
+<img src="readme_images/end_budget.PNG">
+
 ### Common features
 -	Depending on how many budgets the user has, the menu when the user choose budget is flexible and all budgets will be given a menu number. This applies to all occasions where the user will be presented with their personal budgets.  This way of selecting budgets was chosen to give the user a consistent way of navigating the system, because all menu selections are done by numbers. 
+
+<img src="readme_images/common_features.PNG">
+
 -	When the user is asked to choose a menu option the system always show the user which options they can choose between. This is to prevent the user writing wrong input and making the system easy to use. 
+
+<img src="readme_images/common_feature_input.PNG">
+
+
 ### Error handling
 -	This system will give the user different error messages depending on what went wrong. This is to try to lead the user in the right direction so the next input will be correct.  
 -	Menu options. If the user writes a letter, other character, a number the menu doesn’t contain, only whitespaces, or nothing at all. The user will be displayed a message. 
+
+<img src="readme_images/error_handling_1.PNG">
+
 -	The user will have the same error messages as above except the message for menu options when entering budget spendings or purchases in their budget. The message for when entering letters has also been more adapted. 
+
+<img src="readme_images/error_handling_2.PNG">
+
 -	In contrast to menu option, when entering first name and last name the user will get an error message if entering numbers, other characters, only whitespaces, or nothing at all. The user will be displayed with a message that tells the user that the name only can contain letters. 
+
+<img src="readme_images/error_handling_3.PNG">
+
 Username and budget name allows both numbers and letters but don’t allow only whitespaces or nothing at all.  The user will be displayed with a message that tells the user that the username/budget name can’t not be empty or only contain spaces.
+
+<img src="readme_images/error_handling_4.PNG">
+
 -	If the user chooses a username that already exists, the user will be asked to choose another one.
+
+<img src="readme_images/error_handling_5.PNG">
+
 -	If the user tries to add a purchase but don’t have any ongoing budget (active) they will be presented with an error message.
+
+<img src="readme_images/error_handling_6.PNG">
+
 -	If the user tries to end a budget that is already ended, they will be presented with an error message.
+
+<img src="readme_images/error_handling_7.PNG">
+
 ## Data
 All information about the user and the budgets is stored in a Google Sheet document. 
 ### Structure
--	The Google Sheet document contains the three worksheets: budgets, budgets entries and users. Each worksheet contains different columns but there is one column that you can find in all three sheets and that is the user id (in the user file it’s called only id). The user id is the key that connects the worksheets, so the user can be paired to right budget and entry.  
+-	The Google Sheet document contains the three worksheets: budgets, budgets entries and users. Each worksheet contains different columns but there is one column that you can find in all three sheets and that is the user id (in the user file it’s called only id). The user id is the key that connects the worksheets, so the user can be paired to right budget and entry.
+
+<img src="readme_images/worksheet_users.PNG">
+
 -	The worksheets for budgets and budget entries have another category in comment and that is budget id. The budget id connects the worksheets, so the entry can be paired to right budget. 
+
+<img src="readme_images/worksheet_budgets.PNG">
+
 -	Budget entries worksheet also has a column for id, this is not used to connect any row to any other worksheet. 
+
+<img src="readme_images/worksheet_budget_entries.PNG">
+
 
 ## Test and validation
 ## Bugs corrections and improvements 
