@@ -8,7 +8,7 @@ import colors
 def create_budget(active_user):
     """ Used for creating a new budget. The user writes
     name of budget, sum of how much they want to spend."""
-    colors.print_text_color_purple("Let's create a new budget!\n")
+    colors.print_text_color_yellow("Let's create a new budget!\n")
 
     # As long as chosen budget name is empty or only
     # contains spaces ask for new budget name.
@@ -24,7 +24,7 @@ def create_budget(active_user):
                 "Your budget name can't be empty or only contain spaces!"
                 )
 
-    colors.print_text_color_purple(
+    colors.print_text_color_yellow(
         f"The name of your new budget is {budget_name}."
         " Now let's enter the amount for each category.\n"
     )
@@ -77,7 +77,7 @@ def get_budget_summary(active_user_id):
     """
     Gets all entries in active budget, summarize and print.
     """
-    colors.print_text_color_purple(
+    colors.print_text_color_yellow(
         'Which budget would you like a summary of?\n'
         )
     active_budget = utils.get_active_budget(active_user_id)
@@ -110,7 +110,7 @@ def get_budget_summary(active_user_id):
             )
         if active_budget_entries[i]['category'] == 'other':
             sum_other = sum_other + active_budget_entries[i]['amount']
-    colors.print_text_color_purple(
+    colors.print_text_color_yellow(
         f"Your chosen budget is {active_budget['budget_name']}"
         )
     colors.print_text_color_green(

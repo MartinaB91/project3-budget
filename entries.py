@@ -20,7 +20,7 @@ def save_budget_entry(active_user_id):
     save information about the entry, active user and
     budget and saves to worksheet.
     """
-    colors.print_text_color_purple(
+    colors.print_text_color_yellow(
         'Which budget would you like to add purchase to?\n'
         )
     active_budget = utils.get_active_budget(active_user_id)
@@ -36,12 +36,12 @@ def save_budget_entry(active_user_id):
                 "4. Other. \n"
                 "5. Done."
             )
-            colors.print_text_color_purple(
+            colors.print_text_color_yellow(
                 f"Your current budget is {active_budget['budget_name']}."
                 " Now let's choose a category for your purchase: \n"
                 )
             colors.print_text_color_blue(menu_options)
-            colors.print_text_color_purple(
+            colors.print_text_color_yellow(
                 '\nSelect "Done" when you want to go back to main menu.\n'
                 )
             selected_option = utils.get_input_only_digits(

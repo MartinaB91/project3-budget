@@ -100,7 +100,7 @@ def get_active_user():
                 'first_name': active_user_class_list[0]['first_name'],
                 'last_name': active_user_class_list[0]['last_name']
             }
-            colors.print_text_color_purple(
+            colors.print_text_yellow(
                 emojize(f"Hi, {username_input} good to have you back!"
                         + ":slightly_smiling_face:\n")
                 )
@@ -113,7 +113,7 @@ def get_active_user():
             return get_active_user()
 
     elif selected_option == CREATE_NEW_USER:
-        colors.print_text_color_purple("Let's create a new user!\n")
+        colors.print_text_color_yellow("Let's create a new user!\n")
         active_user_class_list = save_new_user_to_worksheet()
         #  Save data to dictionary.
         active_user = {

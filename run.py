@@ -26,7 +26,7 @@ def start_program():
 def select_menu_option(active_user):
     """Present user with menu options over what choises they have
     and what they can do in this program."""
-    colors.print_text_color_purple("What do you want to do? \n")
+    colors.print_text_color_yellow("What do you want to do? \n")
     menu_options = (
         "1. Create a new budget. \n"
         "2. Add purchase to ongoing budget. \n"

@@ -138,7 +138,7 @@ def change_status_budget(active_user_id):
     """
     Changes status on active budgets to inactive if budget status is active.
     """
-    colors.print_text_color_purple('Which budget do you want to end?\n')
+    colors.print_text_color_yellow('Which budget do you want to end?\n')
     active_budget = get_active_budget(active_user_id)  # Choosen active budget
     if active_budget['status'] == 'active':
         worksheet = SHEET.worksheet('budgets')

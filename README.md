@@ -8,7 +8,7 @@ This system contains five different colours. The colours contribute to make it m
 - All menu options have the colour of blue. 
 - When the user is asked to choose a menu option the text have the colour of white.
 - If the user is asked to write in something else than a menu option the text have the colour of pink. 
-- All text that confirms for example active user and ask the user what they want to do next have the colour of purple.
+- All text that confirms for example active user and ask the user what they want to do next have the colour of yellow.
 - All error messages have the colour of red.
 
 ### Emojis
@@ -117,6 +117,7 @@ All information about the user and the budgets is stored in a Google Sheet docum
 -	System crash when user choose option “Done” before adding a purchase. Solved by add if-statement that checks if variable add_more is true, so saving to worksheet is only done when add_more is true (only false when selecting “Done”)
 -	User can choose option two to four without having created a budget (has no budget). If there isn’t a budget the user shouldn’t be able to use those options. Solved by adding function check_if_user_has_budget which check if user has any budgets.
 -	User can create a username that already exists. Solved by adding loop around username input. If list contains chosen username user will get error message and be asked to choose another username. 
+-	System crash when choosing a menu option in budget entries that doesn’t exist (and isn't zero). As a result of the crash the system saves a purchase to the sheet that hasn’t been added by the user. Solved by declaring variables "budget_category" and "budget_entry" and adding budget_category to if statement.
 ### Future improvements
 -	Add password to ensure that no one else can see their budgets.
 -	Give the user the option to compare different budgets.
