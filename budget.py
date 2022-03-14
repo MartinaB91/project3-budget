@@ -92,7 +92,6 @@ def get_budget_summary(active_user_id):
         if all_budget_entries[i]['budget_id'] == active_budget['id']:
             active_budget_entries.append(all_budget_entries[i])
 
-
     sum_shopping = 0
     sum_food = 0
     sum_entertainment = 0

@@ -41,10 +41,16 @@ def save_budget_entry(active_user_id):
                 " Now let's choose a category for your purchase: \n"
                 )
             colors.print_text_color_blue(menu_options)
+            colors.print_text_color_purple(
+                '\nSelect "Done" when you want to go back to main menu.\n'
+                )
             selected_option = utils.get_input_only_digits(
                 'Please select a menu option (1-5): \n',
                 'Your option can only contain digits, please try again!'
                 )
+
+            budget_category = ''
+            budget_entry = ''
 
             # Prints menu options for budgets entries and reads inputs.
             if selected_option == SHOPPING_OPTION:
@@ -82,12 +88,12 @@ def save_budget_entry(active_user_id):
             elif selected_option == DONE_OPTION:
                 add_more = False
             else:
-                print(
-                    f'{selected_option} is not a valid menu option.'
-                    'Please try again.\n'
+                colors.print_text_color_red(
+                    f'{selected_option} is not a valid menu option,'
+                    ' please try again.\n'
                     )
-
-            if add_more is True:
+            # Todo: Make the line shorter
+            if add_more is True and budget_category == 'shopping' or add_more is True and budget_category == 'food' or add_more is True and budget_category == 'entertainment' or add_more is True and budget_category == 'other':
                 colors.print_text_color_green(
                     'Your purchase has been saved!\n'
                     )
@@ -105,3 +111,4 @@ def save_budget_entry(active_user_id):
         colors.print_text_color_red(
             'Your can only add purchases to ongoing(active) budgets.'
             )
+    ###

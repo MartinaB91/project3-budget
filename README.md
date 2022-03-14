@@ -60,15 +60,9 @@ This system contains five different colours. The colours contribute to make it m
 <img src="readme_images/end_budget.PNG">
 
 ### Common features
--	Depending on how many budgets the user has, the menu when the user choose budget is flexible and all budgets will be given a menu number. This applies to all occasions where the user will be presented with their personal budgets.  This way of selecting budgets was chosen to give the user a consistent way of navigating the system, because all menu selections are done by numbers. 
-
-<img src="readme_images/common_features.PNG">
-
+-	Depending on how many budgets the user has, the menu when the user choose budget is flexible and all budgets will be given a menu number. This applies to all occasions where the user will be presented with their personal budgets.  This way of selecting budgets was chosen to give the user a consistent way of navigating the system, because all menu selections are done by numbers.
+ 
 -	When the user is asked to choose a menu option the system always show the user which options they can choose between. This is to prevent the user writing wrong input and making the system easy to use. 
-
-<img src="readme_images/common_feature_input.PNG">
-
-
 ### Error handling
 -	This system will give the user different error messages depending on what went wrong. This is to try to lead the user in the right direction so the next input will be correct.  
 -	Menu options. If the user writes a letter, other character, a number the menu doesn’t contain, only whitespaces, or nothing at all. The user will be displayed a message. 

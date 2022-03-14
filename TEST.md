@@ -23,7 +23,7 @@ Some tests aren’t attached to a requirement. All requirements can’t be speci
 
 |**Test id:** 2|**Test name:** Create new budgets|
 -----------|------------------------------
-|**Purpose:** |Check if user can create several new budget|
+|**Purpose:** |Check if user can create several new budgets|
 |**Requirements:**| As a user, I want to create a new budget so I can track my budget goal.|
 |                 |As a user, I want to have multiple budgets so that I can have different budgets goals. [(Requirements)](/README.md) |
 |**Data:**| Username: Testuser, budget name 1: Test Budget 1, budget name 2: Test Budget 2, shopping: 200, food: 1500, entertainment: 570, other: 10|
@@ -90,13 +90,15 @@ All error messages usability has been tested. Which mean that the user when doin
 Testing trying to provoke errors has been done. For example, entering empty strings or blank spaces in different input scenarios and entering very large numbers when creating a budget or budget entries. 
 
 **Test id:** 9 **Test name:** Usability testing
-In this test one independent user has been presented with some tasks to do in the budget system. Through testing the person has been observed to see if any usability improvements can be found. 
+In this test three independent users has been presented with some tasks to do in the budget system. Through testing the person has been observed to see if any usability improvements can be found. 
 The user was tasked to perform the following:
 1.	Create a user.
 2.	Create a budget.
-3.	Add several different purchases to the budget you have created.
+3.	Add three different purchases to the budget you have created.
 4.	Get a summary of your created budget.
 5.	End your budget.
 
 ## Test result
+
+
 ## Validations 
