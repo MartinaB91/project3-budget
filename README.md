@@ -132,6 +132,8 @@ All information about the user and the budgets is stored in a Google Sheet docum
 
 [Geeksforgeeks]( https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/) and [Stackoverflow]( https://stackoverflow.com/questions/2405292/check-if-string-contains-only-whitespace): Used as inspiration when checking if string is empty or only contains whitespaces. 
 
+[Miro](https://miro.com): Used for making flowchart.
+
 [Python Standard Library](https://docs.python.org/2/library/stdtypes.html): Used for finding built-in types. 
 
 [Stackoverflow]( https://stackoverflow.com/questions/14790980/how-can-i-check-if-key-exists-in-list-of-dicts-in-python): Was used as inspiration when checking if entered username is a user. 

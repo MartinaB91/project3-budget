@@ -100,7 +100,7 @@ def get_active_user():
                 'first_name': active_user_class_list[0]['first_name'],
                 'last_name': active_user_class_list[0]['last_name']
             }
-            colors.print_text_yellow(
+            colors.print_text_color_yellow(
                 emojize(f"Hi, {username_input} good to have you back!"
                         + ":slightly_smiling_face:\n")
                 )
