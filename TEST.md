@@ -99,6 +99,21 @@ The user was tasked to perform the following:
 5.	End your budget.
 
 ## Test result
+| Test id| Test name | Result| Comment|
+|--------|---------|---------|--------|
+| 1 | Create a new user| Pass|        |    
+| 2 | Create new budgets| Pass|        |   
+| 3 | Add purchase to budget| Pass |        |  
+| 4 | Get summary of budget| Pass |        |
+| 5 | End ongoing budget| Pass |        | 
+| 6 | Menu testing| System crash when choosing a menu option in budget entries that doesn’t exist (and isn't zero). System saves a purchase to the sheet that hasn’t been added by the user. |Most likely the previous entry that’s been saved. |
+| 7 | Error messages usability testing| Pass|        |
+| 8 | Error provoking testing |Pass  |        |
+| 9 | Usability test | Led to that the text “Select "Done" when you want to go back to main menu.” was added to the program.| Two of three users had problem to know how to go back from adding purchases to main menu. They didn’t see the option “Done”.| 
+
+Bugs that were found in test id 6 and 9 has been solved and retested with the result of pass. 
 
 
 ## Validations 
+
+All Python files are PEP8 compliant. 

@@ -1,8 +1,36 @@
 # Budget System
 ## Introduction
 Budget system is an aid for financially conscious private individuals who wants to be able to set a budget and then follow how much they spend on shopping, food, entertainment, and other things. In this program the user can create one or several budgets, add a purchase to chosen budget, get a summary of chosen budget and end chosen budget. 
+## Table of contents
+- [UX/Design](#ux/design)
+    - [Text colour](#text-colour)
+    - [Emojis](#emojis)
+- [Requirements](#requirements)
+    - [User stories](#user-stories)
+- [Flowchart](#flowchart)
+- [Features](#features)
+    -[Select user](#select-user)
+    - [Create user](#create-user)
+    - [Create budget](#create-budget)
+    - [Budget entry](#budget-entry)
+    - [Budget summary](#budget-summary)
+    - [End budget](#end-budget)
+    - [Common features](#common-features)
+    - [Error handling](#error-handling)
+- [Data](#data)
+    - [Structure](#structure)
+- [Test and validation](#test-and-validation)
+- [Bugs corrections and improvements](#bugs-corrections-and-improvements)
+    - [Unfixed bugs](#unfixed-bugs)
+    - [Solved bugs](#solved-bugs)
+    - [Future improvements](#future-improvements)
+- [Deployment](#deployment)
+    - [Heroku Deployment](#heroku-deployment)
+- [Credits](#credits)
+
+
 ## UX/Design 
-### Text color
+### Text colour
 This system contains five different colours. The colours contribute to make it more obvious for the user because they are following a certain pattern.  
 - Welcome message and text that confirms user choice for example created budget or ended budget have the colour of green. 
 - All menu options have the colour of blue. 
@@ -12,7 +40,7 @@ This system contains five different colours. The colours contribute to make it m
 - All error messages have the colour of red.
 
 ### Emojis
--	To make the system feel and fun more alive it contains these three emojis: 💰💶🙂
+-	To make the system feel fun and more alive it contains these three emojis: 💰💶🙂
 ## Requirements 
 ### User stories
 - As a user, I want to be able to create a user account so that I can use the budget system.
@@ -110,8 +138,12 @@ All information about the user and the budgets is stored in a Google Sheet docum
 
 
 ## Test and validation
+
+Read more about test and validation [here](/TEST.md)
+
 ## Bugs corrections and improvements 
 ### Unfixed bugs
+-	There are no known bugs. 
 ### Solved bugs
 -	System crash when user creates a new user then goes directly to option “Create a new budget”. When user data came from input the data type of active_user was different compared to when data was read from worksheet. Solved by changing data type of active_user. 
 -	System crash when user choose option “Done” before adding a purchase. Solved by add if-statement that checks if variable add_more is true, so saving to worksheet is only done when add_more is true (only false when selecting “Done”)
@@ -119,13 +151,39 @@ All information about the user and the budgets is stored in a Google Sheet docum
 -	User can create a username that already exists. Solved by adding loop around username input. If list contains chosen username user will get error message and be asked to choose another username. 
 -	System crash when choosing a menu option in budget entries that doesn’t exist (and isn't zero). As a result of the crash the system saves a purchase to the sheet that hasn’t been added by the user. Solved by declaring variables "budget_category" and "budget_entry" and adding budget_category to if statement.
 ### Future improvements
+
+System:
 -	Add password to ensure that no one else can see their budgets.
 -	Give the user the option to compare different budgets.
 -	Give the user the option to choose if they want to see all budgets or only active budgets.
 -	Present the user with more information in the budget summary for example how much in percentage that is spent.
 
+Code:
+- Add type hinting
+- Put python files in a folder
+- Make some part of the code shorter
+
 ## Deployment
+This project is deployed to Heroku. Below the steps taken to deploy is described. 
+
+### Heroku Deployment
+1.	Create an Heroku account
+2.	Create a new app by choosing option “Create new app”, located at the centre of dashboard (or if you’re not a new user it’s found when expanding “New” in the top right corner).
+3.	Give your app a name, choose a region and click “Create”. 
+4.	Go to “Settings” in the navbar and scroll down to section Config Vars and click “Reveal Config Vars”.
+-	Add key: CREDS and paste the content from your creds.json into VALUE, click “Add”.
+-	Add key: PORT with VALUE 8000, click “Add”. 
+5.	Scroll to section Buildpacks, click “Add Bulidpack” select python and click “Save changes”.
+6.	Click “Add Bulidpack” again and select nodejs and click “Save changes”.
+7.	Go to “Deploy” in the navbar and select “GitHub” in section Deployment method. Click “Connect to GitHub” in section below. 
+8.	In section Connect to Github search for your repository, then click “Connect” next to your repository name. 
+9.	Scroll down to section Manual deploy, select your branch and click “Deploy Branch”. After a moment your branch is deployed and a button to go to your deployed app is shown. 
+
+[Here]( https://project3-budget.herokuapp.com/) you can find the deployed app. 
+
 ## Credits
+A special thanks to my mentor Reuben Ferrante for great ideas and support.
+
 [Article](https://towardsdatascience.com/4-tips-to-master-python-f-strings-a70ca896faa4): This article was used as a guide to change alignment of f-strings. 
 
 [Codegrepper](https://www.codegrepper.com/code-examples/python/import+emoji+in+python)  and [Unicode](https://unicode.org/emoji/charts/full-emoji-list.html): Used as a guide when adding emojis. 

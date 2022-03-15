@@ -6,8 +6,8 @@ import utils
 import colors
 
 # Constants used for menu options.
-ENTER_USERNAME = '1'
-CREATE_NEW_USER = '2'
+ENTER_USERNAME = "1"
+CREATE_NEW_USER = "2"
 
 
 def save_new_user_to_worksheet():
@@ -28,7 +28,7 @@ def save_new_user_to_worksheet():
     while True:
         username = input(
             f"{colors.Colors.pink}Enter your username:{colors.Colors.white} \n"
-            )
+        )
 
         # Inspiration from:
         # https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/
@@ -43,12 +43,11 @@ def save_new_user_to_worksheet():
                 break
             else:
                 colors.print_text_color_red(
-                    'This username is already taken,'
-                    ' please try another username!'
-                    )
+                    "This username is already taken,"
+                    " please try another username!"
+                )
         else:  # If username is empty or only blank spaces print this.
             colors.print_text_color_red("Your username can't be empty")
-
     new_user_id = utils.give_data_id("users")
     # saves data in a list
     user = [new_user_id, username, user_fname, user_lname]
@@ -67,21 +66,23 @@ def get_active_user():
     # https://unicode.org/emoji/charts/full-emoji-list.html and
     # https://www.codegrepper.com/code-examples/python/import+emoji+in+python
     colors.print_text_color_green(
-        emojize(":euro_banknote: "
-                + ":money_bag: "
-                + "Welcome to your budget program"
-                + " :money_bag:"
-                + " :euro_banknote:\n")
+        emojize(
+            ":euro_banknote: "
+            + ":money_bag: "
+            + "Welcome to your budget program"
+            + " :money_bag:"
+            + " :euro_banknote:\n"
         )
+    )
     menu_options = "1. Enter your username. \n2. Create a new user.\n"
     colors.print_text_color_blue(menu_options)
     selected_option = input("Please select a menu option (1-2): \n")
 
     if selected_option == ENTER_USERNAME:
         username_input = input(
-            f'{colors.Colors.pink}Enter your username:'
-            f'{colors.Colors.white} \n'
-            )
+            f"{colors.Colors.pink}Enter your username:"
+            f"{colors.Colors.white} \n"
+        )
         users = utils.get_all_info_from_worksheet("users")
 
         # Search in all saved user in sheet to
@@ -90,40 +91,42 @@ def get_active_user():
         # how-can-i-check-if-key-exists-in-list-of-dicts-in-python
         active_user_class_list = [
             dict for dict in users if dict["username"] == username_input
-            ]
+        ]
         # If the list contain a user do this.
         if len(active_user_class_list) != 0:
             #  Save data to dictionary.
             active_user = {
-                'id': active_user_class_list[0]['id'],
-                'username': active_user_class_list[0]['username'],
-                'first_name': active_user_class_list[0]['first_name'],
-                'last_name': active_user_class_list[0]['last_name']
+                "id": active_user_class_list[0]["id"],
+                "username": active_user_class_list[0]["username"],
+                "first_name": active_user_class_list[0]["first_name"],
+                "last_name": active_user_class_list[0]["last_name"],
             }
             colors.print_text_color_yellow(
-                emojize(f"Hi, {username_input} good to have you back!"
-                        + ":slightly_smiling_face:\n")
+                emojize(
+                    f"Hi, {username_input} good to have you back!"
+                    + ":slightly_smiling_face:\n"
                 )
+            )
             return active_user
         else:
             colors.print_text_color_red(
-                'The username you have entered,'
+                "The username you have entered,"
                 f"{username_input} doesn't exist, please try again!"
             )
             return get_active_user()
-
     elif selected_option == CREATE_NEW_USER:
         colors.print_text_color_yellow("Let's create a new user!\n")
         active_user_class_list = save_new_user_to_worksheet()
         #  Save data to dictionary.
         active_user = {
-            'id': active_user_class_list[0],
-            'username': active_user_class_list[1],
-            'first_name': active_user_class_list[2],
-            'last_name': active_user_class_list[3]
+            "id": active_user_class_list[0],
+            "username": active_user_class_list[1],
+            "first_name": active_user_class_list[2],
+            "last_name": active_user_class_list[3],
         }
         colors.print_text_color_green(
-            f"\nYour user {active_user['username']} has been saved!\n")
+            f"\nYour user {active_user['username']} has been saved!\n"
+        )
 
         return active_user
     else:

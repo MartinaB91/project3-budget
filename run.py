@@ -8,14 +8,14 @@ import entries
 import colors
 
 # Constants used for menu options.
-CREATE_BUDGET_OPTION = '1'
-ADD_PURCHASE_OPTION = '2'
-GET_SUMMARY_OPTION = '3'
-END_BUDGET_OPTION = '4'
+CREATE_BUDGET_OPTION = "1"
+ADD_PURCHASE_OPTION = "2"
+GET_SUMMARY_OPTION = "3"
+END_BUDGET_OPTION = "4"
 
 
 def start_program():
-    """ Starts the program, let the user log in and
+    """Starts the program, let the user log in and
     restarts program after ended user operation."""
     active_user = users.get_active_user()
 
@@ -37,9 +37,9 @@ def select_menu_option(active_user):
 
     selected_option = utils.get_input_only_digits(
         "Please select a menu option (1-4): \n",
-        "Your option can only contain digits, please try again!"
+        "Your option can only contain digits, please try again!",
     )
-    user_has_budget = utils.check_if_user_has_budget(active_user['id'])
+    user_has_budget = utils.check_if_user_has_budget(active_user["id"])
 
     # Depending on what choice the user choose it will lead to
     # different 'pages'. Every page has it's own function.
@@ -53,12 +53,12 @@ def select_menu_option(active_user):
         utils.change_status_budget(active_user["id"])
     elif user_has_budget is False:
         colors.print_text_color_red(
-            'Please choose menu option 1 to create a budget.'
+            "Please choose menu option 1 to create a budget."
             )
     else:
         colors.print_text_color_red(
-            f'{selected_option} is not a valid menu option,'
-            ' please try again!\n'
+            f"{selected_option} is not a valid menu option,"
+            " please try again!\n"
         )
 
 
