@@ -1,6 +1,9 @@
 # Budget System
 ## Introduction
-Budget system is an aid for financially conscious private individuals who wants to be able to set a budget and then follow how much they spend on shopping, food, entertainment, and other things. In this program the user can create one or several budgets, add a purchase to chosen budget, get a summary of chosen budget and end chosen budget. 
+Budget system is an aid for financially conscious private individuals who wants to be able to set a budget and then follow how much they spend on shopping, food, entertainment, and other things. In this program the user can create one or several budgets, add a purchase to chosen budget, get a summary of chosen budget and end chosen budget.
+
+<img src="readme_images/introduction.PNG">
+
 ## Table of contents
 - [UX/Design](#ux/design)
     - [Text colour](#text-colour)

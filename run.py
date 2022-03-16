@@ -42,7 +42,7 @@ def select_menu_option(active_user):
     user_has_budget = utils.check_if_user_has_budget(active_user["id"])
 
     # Depending on what choice the user choose it will lead to
-    # different 'pages'. Every page has it's own function.
+    # different 'pages'. Each page has it's own function.
     if selected_option == CREATE_BUDGET_OPTION:
         budget.create_budget(active_user["id"])
     elif selected_option == ADD_PURCHASE_OPTION and user_has_budget:

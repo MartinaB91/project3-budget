@@ -110,7 +110,6 @@ def get_input_only_letters(
     return user_input
 
 
-# https://docs.python.org/2/library/stdtypes.html
 def get_input_only_digits(
         print_statement_enter,
         print_statement_error_message):
